@@ -38,12 +38,37 @@ final class SearchViewController: UIViewController {
     }
 
     private func bind(to searchViewModel: SearchViewModel) {
+        viewModel.visibleItems = { [weak self] items in
+            DispatchQueue.main.async {
+                self?.dataSource.update(with: items)
+                self?.tableView.reloadData()
+            }
+        }
     
     }
     
     private func bind(to dataSource: SearchDataSource) {
         
     }
-}
+    
+        // MARK: - Actions
+    
+    @IBAction func didPressAddButton(_ sender: Any) {
+        guard let ingredient = addIngredientTextField.text else {return}
+        viewModel.addIngredient(for: ingredient)
+        addIngredientTextField.text = ""
+    }
+    @IBAction func didPressClearButton(_ sender: Any) {
+        viewModel.clearIngredientList()
+    }
+    
+    @IBAction func didPressSearchForRecipeButton(_ sender: Any) {
+        viewModel.searchForIngredients()
+        }
+    }
+    
+    
+
+
 
 

@@ -23,4 +23,12 @@ final class ListingTableViewCell: UITableViewCell {
     func configure(with title: String) {
        // self.ingredientLabel.text = title
     }
+    
+    override func prepareForReuse() {
+        dishImageView.image = nil
+        dishNameLabel.text = nil
+        dishDescriptionLabel.text = nil
+        likesLabel.text = nil
+        preparationTimeLabel.text = nil
+    }
 }

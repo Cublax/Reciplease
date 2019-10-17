@@ -19,12 +19,14 @@ final class Screens {
 
 // MARK: - Search
 
+protocol SearchViewControllerDelegate: class {
+    func presentListing(with ingredients: [Ingredient])
+}
+
 extension Screens {
-    func createSearchViewController(delegate: SearchViewModelDelegate?) -> UIViewController {
+    func createSearchViewController(delegate: SearchViewControllerDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "SearchViewController") as! SearchViewController
-        let repository = SearchRepository()
-        let viewModel = SearchViewModel(repository: repository,
-                                        delegate: delegate)
+        let viewModel = SearchViewModel(delegate: delegate)
         viewController.viewModel = viewModel
         return viewController
     }
@@ -43,14 +45,27 @@ extension Screens {
     }
 }
 
-    extension Screens {
-        func createListingViewController(delegate: ListingViewModelDelegate?) -> UIViewController {
-            let viewController = storyboard.instantiateViewController(identifier: "ListingViewController") as! ListingViewController
-            let repository = ListingRepository()
-            let viewModel = ListingViewModel(repository: repository,
-                                             delegate: delegate)
-            viewController.viewModel = viewModel
-            return viewController
+// MARK: - Listing
+
+extension Screens {
+    func createSearchRecipesViewController(delegate: ListingViewModelDelegate?, ingredients: [Ingredient]) -> UIViewController {
+        let viewController = storyboard.instantiateViewController(identifier: "ListingViewController") as! ListingViewController
+        let repository = SearchListingRepository()
+        let viewModel = ListingViewModel(repository: repository,
+                                         delegate: delegate,
+                                         ingredients: ingredients)
+        viewController.viewModel = viewModel
+        return viewController
         
+    }
+
+    func createFavoritesRecipesViewController(delegate: ListingViewModelDelegate?) -> UIViewController {
+        let viewController = storyboard.instantiateViewController(identifier: "ListingViewController") as! ListingViewController
+        let repository = FavoriteListingRepository()
+        let viewModel = ListingViewModel(repository: repository,
+                                         delegate: delegate,
+                                         ingredients: [])
+        viewController.viewModel = viewModel
+        return viewController
     }
 }

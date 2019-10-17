@@ -9,6 +9,7 @@
 import UIKit
 
 final class FavoriteCoordinator {
+    
     // MARK: - Properties
     
     private let presenter: UINavigationController
@@ -24,15 +25,20 @@ final class FavoriteCoordinator {
     // MARK: - Coordinator
     
     func start() {
-        showFavorite()
+        showList()
     }
     
-    private func showFavorite() {
-        let viewController = screens.createRecipeViewController(delegate: self)
-        presenter.viewControllers = [viewController]
+    private func showList() {
+        let viewController = screens.createFavoritesRecipesViewController(delegate: self)
+        presenter.show(viewController, sender: nil)
     }
 }
 
 extension FavoriteCoordinator: RecipeViewModelDelegate {
+    
+}
+
+
+extension FavoriteCoordinator: ListingViewModelDelegate {
     
 }

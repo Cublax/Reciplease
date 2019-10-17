@@ -16,12 +16,14 @@ final class SearchCoordinator {
     
     private let screens: Screens
     
+    
     // MARK: - Initializer
       
     init(presenter: UINavigationController, screens: Screens) {
         self.presenter = presenter
         self.screens = screens
     }
+    
     // MARK: - Coordinator
     
     func start() {
@@ -32,8 +34,19 @@ final class SearchCoordinator {
         let viewController = screens.createSearchViewController(delegate: self)
         presenter.viewControllers = [viewController]
     }
+    
+    private func showList(ingredients: [Ingredient]) {
+        let viewController = screens.createSearchRecipesViewController(delegate: self, ingredients: ingredients)
+        presenter.show(viewController, sender: nil)
+    }
 }
 
-extension SearchCoordinator: SearchViewModelDelegate {
+extension SearchCoordinator: SearchViewControllerDelegate {
+    func presentListing(with ingredients: [Ingredient]) {
+        showList(ingredients: ingredients)
+    }
+}
+
+extension SearchCoordinator: ListingViewModelDelegate {
     
 }
