@@ -10,6 +10,7 @@
 import Foundation
 
 typealias HTTPCompletionHander = (Data?, HTTPURLResponse?, Error?) -> Void
+public typealias DownloadCompletionHandler = (URL?, HTTPURLResponse?, Error?) -> Void
 
 protocol HTTPEngineType {
     func send(request: URLRequest, cancelledBy: RequestCancellationToken, completion: @escaping HTTPCompletionHander)

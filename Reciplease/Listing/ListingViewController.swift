@@ -10,7 +10,7 @@ import UIKit
 
 final class ListingViewController: UIViewController {
     
-     // MARK: - Outlets
+    // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,7 +18,11 @@ final class ListingViewController: UIViewController {
     
     var viewModel: ListingViewModel!
     
-    private lazy var dataSource = ListingDataSource()
+    private lazy var dataSource: ListingDataSource = {
+        let dataSource = ListingDataSource()
+        dataSource.imageProvider = ImageProvider()
+        return dataSource
+    }()
     
     // MARK: - View life cycle
     
@@ -35,9 +39,9 @@ final class ListingViewController: UIViewController {
     private func bind(to viewModel: ListingViewModel) {
         viewModel.recipes = { [weak self] recipes in
             DispatchQueue.main.async {
-            self?.dataSource.update(with: recipes)
-            self?.tableView.reloadData()
-        }
+                self?.dataSource.update(with: recipes)
+                self?.tableView.reloadData()
+            }
         }
     }
     

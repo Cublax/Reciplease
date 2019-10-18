@@ -33,14 +33,14 @@ final class ImageProvider {
 
     // MARK: - Public
 
-    func setImage(for url: String, callback: @escaping (UIImage?) -> Void) {
+    func setImage(for url: String, cancelledBy token: RequestCancellationToken, callback: @escaping (UIImage?) -> Void) {
         let uid = url.hashValue.description
         let cachedImage = CachedImage(with: Key(string: uid), in: cache)
         switch cachedImage {
         case .exists(data: let data):
             callback(UIImage(data: Data(referencing: data)))
         case .new:
-            repository.downloadImage(for: url) { (data) in
+            repository.downloadImage(for: url, cancelledBy: token) { (data) in
                 guard let data = data else { return }
                 self.cache.setObject(Object(data: data), forKey: Key(string: uid))
                 callback(UIImage(data: data))
