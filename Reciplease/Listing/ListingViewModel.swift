@@ -13,7 +13,9 @@ protocol ListingViewModelDelegate: class {
 }
 
 struct VisibleRecipe {
-    
+    let name: String
+    let urlImage: String
+    let ingredient : [String]
 }
 
 final class ListingViewModel {
@@ -26,6 +28,12 @@ final class ListingViewModel {
     
     private var ingredients: [Ingredient]
     
+    private var requestedRecipes: [VisibleRecipe] = [] {
+        didSet {
+            recipes?(self.requestedRecipes)
+        }
+    }
+ 
     // MARK: - Init
     
     init(repository: ListingRepositoryType, delegate: ListingViewModelDelegate?, ingredients: [Ingredient]) {
@@ -36,9 +44,12 @@ final class ListingViewModel {
 
     // MARK: - Outputs
     
+    var recipes: (([VisibleRecipe]) -> Void)?
+    
     func viewDidLoad() {
-        repository.getRecipes(for: ingredients) { [weak self] recipes in
-            // transformer le tableau de Recipes en tableau de VisibleRecipes
+        repository.getRecipes(for: ingredients) { (recipes) in
+            let item: [VisibleRecipe] = recipes.map { VisibleRecipe(name: $0.name, urlImage: $0.urlImage, ingredient: $0.ingredient) }
+            self.requestedRecipes = item
         }
     }
     

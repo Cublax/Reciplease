@@ -18,7 +18,7 @@ final class ListingViewController: UIViewController {
     
     var viewModel: ListingViewModel!
     
-    private let dataSource = ListingDataSource()
+    private lazy var dataSource = ListingDataSource()
     
     // MARK: - View life cycle
     
@@ -33,10 +33,16 @@ final class ListingViewController: UIViewController {
     }
     
     private func bind(to viewModel: ListingViewModel) {
-        
+        viewModel.recipes = { [weak self] recipes in
+            DispatchQueue.main.async {
+            self?.dataSource.update(with: recipes)
+            self?.tableView.reloadData()
+        }
+        }
     }
     
     private func bind(to dataSource: ListingDataSource) {
         
     }
 }
+

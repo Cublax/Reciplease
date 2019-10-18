@@ -38,6 +38,8 @@
 		ACD31F292343794A0053EFEC /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD31F282343794A0053EFEC /* RecipeViewModel.swift */; };
 		ACD31F2B23437B080053EFEC /* RecipeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD31F2A23437B080053EFEC /* RecipeRepository.swift */; };
 		ACF4273A234F560C009A92FC /* RecipeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF42739234F560C009A92FC /* RecipeResponse.swift */; };
+		ACFE68832359BE1E00F89BF4 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFE68822359BE1E00F89BF4 /* ImageRepository.swift */; };
+		ACFE68862359C8E100F89BF4 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFE68852359C8E100F89BF4 /* ImageProvider.swift */; };
 		E683027FD8275ABB28510CB9 /* libPods-RecipleaseTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC86D548698B55D16901A04 /* libPods-RecipleaseTests.a */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +91,8 @@
 		ACD31F282343794A0053EFEC /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		ACD31F2A23437B080053EFEC /* RecipeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRepository.swift; sourceTree = "<group>"; };
 		ACF42739234F560C009A92FC /* RecipeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeResponse.swift; sourceTree = "<group>"; };
+		ACFE68822359BE1E00F89BF4 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
+		ACFE68852359C8E100F89BF4 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		D6FEA6CE1E31FC103E22A33A /* Pods-RecipleaseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipleaseTests.debug.xcconfig"; path = "Target Support Files/Pods-RecipleaseTests/Pods-RecipleaseTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E27F0B6DF164B8CB23695363 /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
 		E2FE9B389D3C84AA14E14B28 /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				ACD31F1D23435FC50053EFEC /* Recipe */,
 				AC981DC6234CF43D007399BE /* Listing */,
 				ACD6B8E7234CEDCF0071473F /* Coordinators */,
+				ACFE68842359BE2300F89BF4 /* Images */,
 				AC93767F2343B68E00BC152A /* Network */,
 				AC23C8F623438F57004939F6 /* Alerts */,
 				ACD31EFB23435A6F0053EFEC /* Assets.xcassets */,
@@ -259,6 +264,15 @@
 				ACD31F1823435F840053EFEC /* SearchCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		ACFE68842359BE2300F89BF4 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				ACFE68852359C8E100F89BF4 /* ImageProvider.swift */,
+				ACFE68822359BE1E00F89BF4 /* ImageRepository.swift */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		DB6F471815435244EE86404E /* Pods */ = {
@@ -434,10 +448,12 @@
 				AC981DC8234CF4B7007399BE /* ListingViewModel.swift in Sources */,
 				AC981DD7234D0615007399BE /* RecipeTableViewCell.swift in Sources */,
 				ACD31F1523435E330053EFEC /* AppCoordinator.swift in Sources */,
+				ACFE68862359C8E100F89BF4 /* ImageProvider.swift in Sources */,
 				AC981DC5234CF42F007399BE /* ListingViewController.swift in Sources */,
 				ACD31EF023435A6D0053EFEC /* AppDelegate.swift in Sources */,
 				ACD31F2B23437B080053EFEC /* RecipeRepository.swift in Sources */,
 				ACD31F1723435F220053EFEC /* TabCoordinator.swift in Sources */,
+				ACFE68832359BE1E00F89BF4 /* ImageRepository.swift in Sources */,
 				ACD31F1F234360A00053EFEC /* Screens.swift in Sources */,
 				AC981DDA234D07EC007399BE /* ListingTableViewCell.swift in Sources */,
 				ACF4273A234F560C009A92FC /* RecipeResponse.swift in Sources */,

@@ -286,8 +286,6 @@
                                             <outlet property="dishDescriptionLabel" destination="99g-Lg-Dla" id="sLR-MU-6vQ"/>
                                             <outlet property="dishImageView" destination="xce-Ru-PEi" id="VWC-Vt-aJF"/>
                                             <outlet property="dishNameLabel" destination="zqd-FC-5HG" id="uRh-qZ-Fjy"/>
-                                            <outlet property="likesLabel" destination="Z95-B2-84O" id="hte-TS-Rjh"/>
-                                            <outlet property="preparationTimeLabel" destination="rdQ-8G-V5n" id="JhW-xN-66g"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
