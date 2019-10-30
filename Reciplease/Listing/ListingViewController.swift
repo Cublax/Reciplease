@@ -18,10 +18,10 @@ final class ListingViewController: UIViewController {
     
     var viewModel: ListingViewModel!
     
+     var imageProvider: ImageProvider!
+    
     private lazy var dataSource: ListingDataSource = {
-        let dataSource = ListingDataSource()
-        dataSource.imageProvider = ImageProvider()
-        return dataSource
+         return ListingDataSource(imageProvider: imageProvider)
     }()
     
     // MARK: - View life cycle

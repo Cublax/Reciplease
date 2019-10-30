@@ -9,11 +9,20 @@
 /* Begin PBXBuildFile section */
 		858423C952CEEEC1D83F763F /* libPods-Reciplease.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08DF0DB3A52CA7BF0F73FCA /* libPods-Reciplease.a */; };
 		AC0A6F3D235F5E8700C9B026 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC0A6F3B235F5E8700C9B026 /* Model.xcdatamodeld */; };
+		AC18B6D82369DCAC003002B9 /* JSONBodyEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC18B6D72369DCAC003002B9 /* JSONBodyEncoder.swift */; };
+		AC18B6DC2369DCF2003002B9 /* ExecutableRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC18B6DB2369DCF2003002B9 /* ExecutableRequest.swift */; };
+		AC18B6DE2369DD69003002B9 /* HTTPEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC18B6DD2369DD69003002B9 /* HTTPEngine.swift */; };
+		AC18B6E12369DD9D003002B9 /* URLSessionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC18B6E02369DD9D003002B9 /* URLSessionEngine.swift */; };
+		AC18B6E32369DDC9003002B9 /* RequestCancelationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC18B6E22369DDC9003002B9 /* RequestCancelationToken.swift */; };
+		AC18B6E52369DE33003002B9 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC18B6E42369DE33003002B9 /* HTTPClient.swift */; };
+		AC18B6E72369DE51003002B9 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC18B6E62369DE51003002B9 /* HTTPResponse.swift */; };
+		AC18B6E92369DE6C003002B9 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC18B6E82369DE6C003002B9 /* HTTPRequest.swift */; };
+		AC18B6EB2369DE95003002B9 /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC18B6EA2369DE95003002B9 /* URLRequestBuilder.swift */; };
+		AC18B6ED2369DEBB003002B9 /* ExecutableDownloadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC18B6EC2369DEBB003002B9 /* ExecutableDownloadRequest.swift */; };
+		AC18B6EF2369DED6003002B9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC18B6EE2369DED6003002B9 /* Endpoint.swift */; };
+		AC18B6F12369DEEB003002B9 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC18B6F02369DEEB003002B9 /* Promise.swift */; };
 		AC23C8F523438F4B004939F6 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC23C8F423438F4B004939F6 /* Alert.swift */; };
 		AC4C7FA5236836CF00F7CC89 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C7FA4236836CF00F7CC89 /* Context.swift */; };
-		AC93767E2343B68500BC152A /* HTTPEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC93767D2343B68500BC152A /* HTTPEngine.swift */; };
-		AC9376812343B72E00BC152A /* RequestCancellationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9376802343B72E00BC152A /* RequestCancellationToken.swift */; };
-		AC9376832343BAB000BC152A /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9376822343BAB000BC152A /* HTTPClient.swift */; };
 		AC981DC5234CF42F007399BE /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981DC4234CF42F007399BE /* ListingViewController.swift */; };
 		AC981DC8234CF4B7007399BE /* ListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981DC7234CF4B7007399BE /* ListingViewModel.swift */; };
 		AC981DCE234CF735007399BE /* RecipeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981DCD234CF735007399BE /* RecipeDataSource.swift */; };
@@ -60,11 +69,20 @@
 		87C5B580F14EBEC02F03C560 /* Pods-RecipleaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipleaseTests.release.xcconfig"; path = "Target Support Files/Pods-RecipleaseTests/Pods-RecipleaseTests.release.xcconfig"; sourceTree = "<group>"; };
 		A08DF0DB3A52CA7BF0F73FCA /* libPods-Reciplease.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Reciplease.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0A6F3C235F5E8700C9B026 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		AC18B6D72369DCAC003002B9 /* JSONBodyEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONBodyEncoder.swift; sourceTree = "<group>"; };
+		AC18B6DB2369DCF2003002B9 /* ExecutableRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutableRequest.swift; sourceTree = "<group>"; };
+		AC18B6DD2369DD69003002B9 /* HTTPEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPEngine.swift; sourceTree = "<group>"; };
+		AC18B6E02369DD9D003002B9 /* URLSessionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionEngine.swift; sourceTree = "<group>"; };
+		AC18B6E22369DDC9003002B9 /* RequestCancelationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCancelationToken.swift; sourceTree = "<group>"; };
+		AC18B6E42369DE33003002B9 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		AC18B6E62369DE51003002B9 /* HTTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponse.swift; sourceTree = "<group>"; };
+		AC18B6E82369DE6C003002B9 /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		AC18B6EA2369DE95003002B9 /* URLRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
+		AC18B6EC2369DEBB003002B9 /* ExecutableDownloadRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutableDownloadRequest.swift; sourceTree = "<group>"; };
+		AC18B6EE2369DED6003002B9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		AC18B6F02369DEEB003002B9 /* Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
 		AC23C8F423438F4B004939F6 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		AC4C7FA4236836CF00F7CC89 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
-		AC93767D2343B68500BC152A /* HTTPEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPEngine.swift; sourceTree = "<group>"; };
-		AC9376802343B72E00BC152A /* RequestCancellationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCancellationToken.swift; sourceTree = "<group>"; };
-		AC9376822343BAB000BC152A /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		AC981DC4234CF42F007399BE /* ListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewController.swift; sourceTree = "<group>"; };
 		AC981DC7234CF4B7007399BE /* ListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListingViewModel.swift; path = Reciplease/Listing/ListingViewModel.swift; sourceTree = SOURCE_ROOT; };
 		AC981DCD234CF735007399BE /* RecipeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDataSource.swift; sourceTree = "<group>"; };
@@ -131,6 +149,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AC18B6D92369DCBD003002B9 /* Network Bertrand */ = {
+			isa = PBXGroup;
+			children = (
+				AC18B6DA2369DCD5003002B9 /* Request Encoding */,
+				AC18B6DF2369DD76003002B9 /* Engine */,
+				AC18B6E42369DE33003002B9 /* HTTPClient.swift */,
+				AC18B6E62369DE51003002B9 /* HTTPResponse.swift */,
+				AC18B6E82369DE6C003002B9 /* HTTPRequest.swift */,
+				AC18B6EA2369DE95003002B9 /* URLRequestBuilder.swift */,
+				AC18B6DB2369DCF2003002B9 /* ExecutableRequest.swift */,
+				AC18B6EC2369DEBB003002B9 /* ExecutableDownloadRequest.swift */,
+				AC18B6EE2369DED6003002B9 /* Endpoint.swift */,
+				AC18B6F02369DEEB003002B9 /* Promise.swift */,
+			);
+			path = "Network Bertrand";
+			sourceTree = "<group>";
+		};
+		AC18B6DA2369DCD5003002B9 /* Request Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				AC18B6D72369DCAC003002B9 /* JSONBodyEncoder.swift */,
+			);
+			path = "Request Encoding";
+			sourceTree = "<group>";
+		};
+		AC18B6DF2369DD76003002B9 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				AC18B6DD2369DD69003002B9 /* HTTPEngine.swift */,
+				AC18B6E02369DD9D003002B9 /* URLSessionEngine.swift */,
+				AC18B6E22369DDC9003002B9 /* RequestCancelationToken.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
 		AC23C8F623438F57004939F6 /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,9 +195,7 @@
 		AC93767F2343B68E00BC152A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				AC93767D2343B68500BC152A /* HTTPEngine.swift */,
-				AC9376822343BAB000BC152A /* HTTPClient.swift */,
-				AC9376802343B72E00BC152A /* RequestCancellationToken.swift */,
+				AC18B6D92369DCBD003002B9 /* Network Bertrand */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -444,34 +495,43 @@
 			files = (
 				AC981DD0234CFF8B007399BE /* ListingDataSource.swift in Sources */,
 				AC981DD4234D0127007399BE /* SearchTableViewCell.swift in Sources */,
+				AC18B6EB2369DE95003002B9 /* URLRequestBuilder.swift in Sources */,
+				AC18B6E72369DE51003002B9 /* HTTPResponse.swift in Sources */,
+				AC18B6E32369DDC9003002B9 /* RequestCancelationToken.swift in Sources */,
 				ACD31F23234369220053EFEC /* SearchViewModel.swift in Sources */,
 				AC4C7FA5236836CF00F7CC89 /* Context.swift in Sources */,
-				AC93767E2343B68500BC152A /* HTTPEngine.swift in Sources */,
 				AC981DCE234CF735007399BE /* RecipeDataSource.swift in Sources */,
 				ACC3CA64234D08D700DE7ACC /* ListingRepository.swift in Sources */,
 				ACD31F212343685C0053EFEC /* SearchViewController.swift in Sources */,
 				ACD31F1C23435FA10053EFEC /* FavoriteCoordinator.swift in Sources */,
+				AC18B6DE2369DD69003002B9 /* HTTPEngine.swift in Sources */,
+				AC18B6E12369DD9D003002B9 /* URLSessionEngine.swift in Sources */,
 				AC23C8F523438F4B004939F6 /* Alert.swift in Sources */,
 				AC981DC8234CF4B7007399BE /* ListingViewModel.swift in Sources */,
+				AC18B6E52369DE33003002B9 /* HTTPClient.swift in Sources */,
 				AC981DD7234D0615007399BE /* RecipeTableViewCell.swift in Sources */,
 				ACD31F1523435E330053EFEC /* AppCoordinator.swift in Sources */,
 				ACFE68862359C8E100F89BF4 /* ImageProvider.swift in Sources */,
 				AC981DC5234CF42F007399BE /* ListingViewController.swift in Sources */,
 				ACD31EF023435A6D0053EFEC /* AppDelegate.swift in Sources */,
 				ACD31F2B23437B080053EFEC /* RecipeRepository.swift in Sources */,
+				AC18B6F12369DEEB003002B9 /* Promise.swift in Sources */,
 				ACD31F1723435F220053EFEC /* TabCoordinator.swift in Sources */,
 				ACFE68832359BE1E00F89BF4 /* ImageRepository.swift in Sources */,
 				ACD31F1F234360A00053EFEC /* Screens.swift in Sources */,
+				AC18B6EF2369DED6003002B9 /* Endpoint.swift in Sources */,
 				AC981DDA234D07EC007399BE /* ListingTableViewCell.swift in Sources */,
 				ACF4273A234F560C009A92FC /* RecipeResponse.swift in Sources */,
 				ACD31EF223435A6D0053EFEC /* SceneDelegate.swift in Sources */,
 				ACD31F27234378E80053EFEC /* RecipeViewController.swift in Sources */,
 				AC981DD2234D0108007399BE /* SearchDataSource.swift in Sources */,
-				AC9376832343BAB000BC152A /* HTTPClient.swift in Sources */,
 				ACD31F1923435F840053EFEC /* SearchCoordinator.swift in Sources */,
 				ACD31F292343794A0053EFEC /* RecipeViewModel.swift in Sources */,
-				AC9376812343B72E00BC152A /* RequestCancellationToken.swift in Sources */,
+				AC18B6DC2369DCF2003002B9 /* ExecutableRequest.swift in Sources */,
+				AC18B6E92369DE6C003002B9 /* HTTPRequest.swift in Sources */,
+				AC18B6ED2369DEBB003002B9 /* ExecutableDownloadRequest.swift in Sources */,
 				AC0A6F3D235F5E8700C9B026 /* Model.xcdatamodeld in Sources */,
+				AC18B6D82369DCAC003002B9 /* JSONBodyEncoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

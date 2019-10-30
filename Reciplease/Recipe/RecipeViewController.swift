@@ -27,9 +27,7 @@ final class RecipeViewController: UIViewController {
     
     private let dataSource = RecipeDataSource()
     
-//    private var imageProvider: ImageProvider!
-//    
-//    private var cancellationToken: RequestCancellationToken!
+    var imageProvider: ImageProvider!
     
     // MARK: - View life cycle
 

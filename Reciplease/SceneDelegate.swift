@@ -14,13 +14,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var coordinator: AppCoordinator!
     var context: Context!
 
+    // MARK: - Private properties
+    
+     private var imageCache: NSCache<Key, Object>!
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(windowScene: scene)
         window!.makeKeyAndVisible()
-
-        coordinator = AppCoordinator(sceneDelegate: self)
+        imageCache = NSCache<Key, Object>()
+        
+         let client = HTTPClient(engine: .urlSession(.default))
+        
+        let imageRepository = ImageRepository(networkClient: client)
+        
+        let imageProvider = ImageProvider(repository: imageRepository,
+                                                 cache: self.imageCache)
+        
+        context = Context(networkClient: client,
+                          imageProvider: imageProvider)
+        
+        coordinator = AppCoordinator(sceneDelegate: self,
+        context: context)
         coordinator.start()
     }
 

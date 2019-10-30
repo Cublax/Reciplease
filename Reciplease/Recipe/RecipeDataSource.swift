@@ -11,14 +11,14 @@ final class RecipeDataSource: NSObject, UITableViewDelegate, UITableViewDataSour
     
    // MARK: - Private
        
-       private var ingredients: [String] = []
+    private var ingredients: [String] = []
        
        // MARK: - Public
     
-        func update(with ingredients: [String]) {
+    func update(with ingredients: [String]) {
             self.ingredients = ingredients
        }
-    
+   
     // MARK: - UITableViewDelegate
        
        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,4 +32,5 @@ final class RecipeDataSource: NSObject, UITableViewDelegate, UITableViewDataSour
                return cell
              }
 }
+
 

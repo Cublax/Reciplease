@@ -36,10 +36,11 @@ final class ListingTableViewCell: UITableViewCell {
         self.dishNameLabel.text = recipes.name
         self.originRecipeLabel.text = recipes.source
         cancellationToken = RequestCancellationToken()
-        imageProvider?.setImage(for: recipes.urlImage, cancelledBy: cancellationToken) { (image) in
-            DispatchQueue.main.async {
-                self.dishImageView.image = image
-                self.dishImageView.contentMode = .scaleAspectFill
+        guard let url = URL(string: recipes.urlImage) else { return }
+        imageProvider?.setImage(for: url, cancelledBy: cancellationToken) { [weak self] image in
+                   DispatchQueue.main.async {
+                self?.dishImageView.image = image
+                self?.dishImageView.contentMode = .scaleAspectFill
             }
         }
     }

@@ -8,32 +8,35 @@
 
 import Foundation
 
-protocol  ImageRepositoryType {
-    func downloadImage(for url: String, cancelledBy token: RequestCancellationToken, callback: @escaping (Data?) -> Void)
+protocol ImageRepositoryType {
+    func downloadImage(for url: URL, cancelledBy cancellationToken: RequestCancellationToken, callback: @escaping (Data?) -> Void)
 }
 
 final class ImageRepository: ImageRepositoryType {
-    
+
     // MARK: - Properties
-    
-    private let client: HTTPClient
-    
-    private let token = RequestCancellationToken()
-    
-    // MARK: - Initializer
-    
-    init() {
-        self.client = HTTPClient(cancellationToken: token)
+
+    private let networkClient: HTTPClient
+
+    init(networkClient: HTTPClient) {
+        self.networkClient = networkClient
     }
-    
-    // MARK: - Requests
-    
-    func downloadImage(for url: String, cancelledBy token: RequestCancellationToken, callback: @escaping (Data?) -> Void) {
-        guard let urlForRequest = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return}
-        guard let url = URL(string: urlForRequest) else {return}
-        
-        client.request(requestType: .GET, url: url, cancelledBy: token) { (data) in
-            callback(data)
+
+    // MARK: - ImageRepositoryType
+
+    func downloadImage(for url: URL,
+                       cancelledBy cancellationToken: RequestCancellationToken,
+                       callback: @escaping (Data?) -> Void) {
+        let request = URLRequest(url: url)
+        networkClient
+            .executeTask(request, cancelledBy: cancellationToken)
+            .processDataResponse { (response) in
+                switch response.result {
+                case .success(let data):
+                    callback(data)
+                case .failure:
+                    callback(nil)
+                }
         }
     }
 }

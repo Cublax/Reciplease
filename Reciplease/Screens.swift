@@ -13,7 +13,13 @@ final class Screens {
     // MARK: - Properties
     
     let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: Screens.self))
-    
+    private let context: Context
+
+    // MARK: - Initializer
+
+    init(context: Context) {
+        self.context = context
+    }
 }
 
 // MARK: - Search
@@ -40,6 +46,7 @@ extension Screens {
         let viewModel = RecipeViewModel(repository: repository,
                                         recipe: recipe)
         viewController.viewModel = viewModel
+         viewController.imageProvider = context.imageProvider
         return viewController
     }
 }
@@ -53,11 +60,12 @@ protocol ListingViewModelDelegate: class {
 extension Screens {
     func createSearchRecipesViewController(delegate: ListingViewModelDelegate?, ingredients: [Ingredient]) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "ListingViewController") as! ListingViewController
-        let repository = SearchListingRepository()
+        let repository = SearchListingRepository(networkClient: context.networkClient)
         let viewModel = ListingViewModel(repository: repository,
                                          delegate: delegate,
                                          ingredients: ingredients)
         viewController.viewModel = viewModel
+         viewController.imageProvider = context.imageProvider
         return viewController
         
     }
@@ -69,6 +77,7 @@ extension Screens {
                                          delegate: delegate,
                                          ingredients: [])
         viewController.viewModel = viewModel
+        viewController.imageProvider = context.imageProvider
         return viewController
     }
 }

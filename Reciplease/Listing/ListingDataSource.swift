@@ -24,6 +24,12 @@ final class ListingDataSource: NSObject, UITableViewDelegate, UITableViewDataSou
     
      var didSelectItemAtIndex: ((Int) -> Void)?
     
+    // MARK: - Initializer
+
+    init(imageProvider: ImageProvider) {
+        self.imageProvider = imageProvider
+    }
+    
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

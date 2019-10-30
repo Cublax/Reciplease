@@ -14,19 +14,21 @@ final class AppCoordinator {
     
     private unowned var sceneDelegate: SceneDelegate
     
+    private let context: Context
+    
     private var tabcoordinator: TabCoordinator?
     
     // MARK: - Initializer
     
-    init(sceneDelegate: SceneDelegate) {
+    init(sceneDelegate: SceneDelegate, context: Context) {
         self.sceneDelegate = sceneDelegate
+        self.context = context
     }
     
     // MARK: - Coordinator
 
     func start() {
-        
-        tabcoordinator = TabCoordinator(presenter: sceneDelegate.window!)
+        tabcoordinator = TabCoordinator(presenter: sceneDelegate.window!, context: context)
         tabcoordinator?.start()
     }
 }

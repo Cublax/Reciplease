@@ -26,21 +26,21 @@ final class ImageProvider {
 
     // MARK: - Initializer
 
-    init() {
-        self.repository = ImageRepository()
+    init(repository: ImageRepositoryType, cache: NSCache<Key, Object>) {
+        self.repository = repository
         self.cache = NSCache<Key, Object>()
     }
 
     // MARK: - Public
 
-    func setImage(for url: String, cancelledBy token: RequestCancellationToken, callback: @escaping (UIImage?) -> Void) {
-         let uid = url.hashValue.description
+    func setImage(for url: URL, cancelledBy cancellationToken: RequestCancellationToken, callback: @escaping (UIImage?) -> Void) {
+        let uid = url.hashValue.description
         let cachedImage = CachedImage(with: Key(string: uid), in: cache)
         switch cachedImage {
         case .exists(data: let data):
             callback(UIImage(data: Data(referencing: data)))
         case .new:
-            repository.downloadImage(for: url, cancelledBy: token) { (data) in
+            repository.downloadImage(for: url, cancelledBy: cancellationToken) { (data) in
                 guard let data = data else { return }
                 self.cache.setObject(Object(data: data), forKey: Key(string: uid))
                 callback(UIImage(data: data))
@@ -58,3 +58,4 @@ extension ImageProvider.CachedImage {
         }
     }
 }
+

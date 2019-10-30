@@ -66,10 +66,10 @@ final class TabCoordinator: NSObject {
     
     // MARK: - Initializer
 
-    init(presenter: UIWindow) {
+    init(presenter: UIWindow, context: Context) {
         self.presenter = presenter
         
-        screens = Screens()
+        self.screens = Screens(context: context)
         tabBarController = UITabBarController(nibName: nil, bundle: nil)
         tabBarController.viewControllers = source.items
         tabBarController.selectedViewController = source[.search]

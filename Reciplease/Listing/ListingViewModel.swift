@@ -44,10 +44,12 @@ final class ListingViewModel {
     var recipes: (([VisibleRecipe]) -> Void)?
     
     func viewDidLoad() {
-        repository.getRecipes(for: ingredients) { (recipes) in
+        repository.getRecipes(for: ingredients, success: { (recipes) in
             let item: [VisibleRecipe] = recipes.map { VisibleRecipe(name: $0.name, urlImage: $0.urlImage, source: $0.source, ingredient: $0.ingredient) }
             self.requestedRecipes = item
-        }
+        }, failure: { [weak self] in
+            //self?.delegate?.shouldDisplayAlert(for: .requestError)
+        })
     }
     
     // MARK: - Inputs
