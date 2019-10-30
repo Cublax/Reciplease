@@ -39,14 +39,21 @@ final class SearchCoordinator {
         let viewController = screens.createSearchRecipesViewController(delegate: self, ingredients: ingredients)
         presenter.show(viewController, sender: nil)
     }
+    
+    private func showRecipe(of recipe: VisibleRecipe) {
+        let viewController = screens.createRecipeViewController(recipe: recipe)
+        presenter.show(viewController, sender: nil)
+    }
 }
 
-extension SearchCoordinator: SearchViewControllerDelegate {
+extension SearchCoordinator: SearchViewModelDelegate {
     func presentListing(with ingredients: [Ingredient]) {
         showList(ingredients: ingredients)
     }
 }
 
 extension SearchCoordinator: ListingViewModelDelegate {
-    
+    func didSelectRecipe(recipe: VisibleRecipe) {
+        showRecipe(of: recipe)
+    }
 }

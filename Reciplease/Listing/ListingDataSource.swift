@@ -22,6 +22,8 @@ final class ListingDataSource: NSObject, UITableViewDelegate, UITableViewDataSou
           self.items = items
        }
     
+     var didSelectItemAtIndex: ((Int) -> Void)?
+    
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,6 +39,15 @@ final class ListingDataSource: NSObject, UITableViewDelegate, UITableViewDataSou
           }
     
     // MARK: - UITableViewDataSource
-   
+    
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         guard indexPath.item < items.count else {
+             assertionFailure("Index out of Range")
+             return
+         }
+         
+         let index = indexPath.item
+         didSelectItemAtIndex?(index)
+     }
 }
 

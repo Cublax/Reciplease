@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 final class RecipeViewController: UIViewController {
     
     // MARK: - Outlets
@@ -16,7 +17,7 @@ final class RecipeViewController: UIViewController {
     
     @IBOutlet weak var numberLikesLabel: UILabel!
     @IBOutlet weak var preparationTimeLabel: UILabel!
-    @IBOutlet weak var foodImageView: UIImageView!
+    @IBOutlet weak var dishImageView: UIImageView!
     @IBOutlet weak var dishNameLabel: UILabel!
     @IBOutlet weak var getDirectionsButton: UIButton!
     
@@ -25,6 +26,10 @@ final class RecipeViewController: UIViewController {
     var viewModel: RecipeViewModel!
     
     private let dataSource = RecipeDataSource()
+    
+//    private var imageProvider: ImageProvider!
+//    
+//    private var cancellationToken: RequestCancellationToken!
     
     // MARK: - View life cycle
 
@@ -39,10 +44,30 @@ final class RecipeViewController: UIViewController {
     }
     
     private func bind(to viewModel: RecipeViewModel) {
-        
+      viewModel.informations = { [weak self] item in
+          DispatchQueue.main.async {
+            self?.dataSource.update(with: item.ingredient)
+            self?.dishNameLabel.text = item.name
+            //self?.configureImage(with: item.urlImage)
+              self?.tableView.reloadData()
+          }
+      }
     }
     
     private func bind(to dataSource: RecipeDataSource) {
+       
+    }
+    
+//    private func configureImage(with url: String) {
+//        cancellationToken = RequestCancellationToken()
+//               imageProvider?.setImage(for: url, cancelledBy: cancellationToken) { (image) in
+//                    self.dishImageView.image = image
+//                    self.dishImageView.contentMode = .scaleAspectFill
+//               }
+//    }
+    
+    @IBAction func AddFavorite(_ sender: Any) {
         
     }
 }
+

@@ -16,15 +16,14 @@ final class Screens {
     
 }
 
-
 // MARK: - Search
 
-protocol SearchViewControllerDelegate: class {
+protocol SearchViewModelDelegate: class {
     func presentListing(with ingredients: [Ingredient])
 }
 
 extension Screens {
-    func createSearchViewController(delegate: SearchViewControllerDelegate?) -> UIViewController {
+    func createSearchViewController(delegate: SearchViewModelDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "SearchViewController") as! SearchViewController
         let viewModel = SearchViewModel(delegate: delegate)
         viewController.viewModel = viewModel
@@ -32,20 +31,24 @@ extension Screens {
     }
 }
 
-// MARK: - Favorite
+// MARK: - Recipe
 
 extension Screens {
-    func createRecipeViewController(delegate: RecipeViewModelDelegate?) -> UIViewController {
+    func createRecipeViewController(recipe: VisibleRecipe) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "RecipeViewController") as! RecipeViewController
         let repository = RecipeRepository()
         let viewModel = RecipeViewModel(repository: repository,
-                                        delegate: delegate)
+                                        recipe: recipe)
         viewController.viewModel = viewModel
         return viewController
     }
 }
 
 // MARK: - Listing
+
+protocol ListingViewModelDelegate: class {
+    func didSelectRecipe(recipe: VisibleRecipe)
+}
 
 extension Screens {
     func createSearchRecipesViewController(delegate: ListingViewModelDelegate?, ingredients: [Ingredient]) -> UIViewController {
@@ -59,7 +62,7 @@ extension Screens {
         
     }
 
-    func createFavoritesRecipesViewController(delegate: ListingViewModelDelegate?) -> UIViewController {
+    func createFavoriteRecipesViewController(delegate: ListingViewModelDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "ListingViewController") as! ListingViewController
         let repository = FavoriteListingRepository()
         let viewModel = ListingViewModel(repository: repository,

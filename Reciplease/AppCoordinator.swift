@@ -26,7 +26,6 @@ final class AppCoordinator {
 
     func start() {
         
-        
         tabcoordinator = TabCoordinator(presenter: sceneDelegate.window!)
         tabcoordinator?.start()
     }

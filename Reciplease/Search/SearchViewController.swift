@@ -32,7 +32,6 @@ final class SearchViewController: UIViewController {
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         
-        bind(to: dataSource)
         bind(to: viewModel)
         viewModel.viewDidLoad()
     }
@@ -44,11 +43,6 @@ final class SearchViewController: UIViewController {
                 self?.tableView.reloadData()
             }
         }
-    
-    }
-    
-    private func bind(to dataSource: SearchDataSource) {
-        
     }
     
         // MARK: - Actions

@@ -14,7 +14,7 @@ final class SearchViewModel {
     
     // MARK: - Properties
     
-    private weak var delegate: SearchViewControllerDelegate?
+    private weak var delegate: SearchViewModelDelegate?
     
     private var ingredients: [Ingredient] = [] {
         didSet {
@@ -24,7 +24,7 @@ final class SearchViewModel {
     
     // MARK: - Initializer
     
-    init(delegate: SearchViewControllerDelegate?) {
+    init(delegate: SearchViewModelDelegate?) {
         self.delegate = delegate
     }
     // MARK: - Outputs

@@ -34,7 +34,4 @@ final class SearchDataSource: NSObject, UITableViewDelegate, UITableViewDataSour
             cell.configure(with: ingredients[indexPath.row])
             return cell
           }
-    
-    // MARK: - UITableViewDataSource
-   
 }

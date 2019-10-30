@@ -8,13 +8,10 @@
 
 import Foundation
 
-protocol ListingViewModelDelegate: class {
-    
-}
-
 struct VisibleRecipe {
     let name: String
     let urlImage: String
+    let source: String
     let ingredient : [String]
 }
 
@@ -48,7 +45,7 @@ final class ListingViewModel {
     
     func viewDidLoad() {
         repository.getRecipes(for: ingredients) { (recipes) in
-            let item: [VisibleRecipe] = recipes.map { VisibleRecipe(name: $0.name, urlImage: $0.urlImage, ingredient: $0.ingredient) }
+            let item: [VisibleRecipe] = recipes.map { VisibleRecipe(name: $0.name, urlImage: $0.urlImage, source: $0.source, ingredient: $0.ingredient) }
             self.requestedRecipes = item
         }
     }
@@ -56,7 +53,9 @@ final class ListingViewModel {
     // MARK: - Inputs
 
     func didSelectRecipe(at index: Int) {
-        //tu prends l'item à lindex dans ton tableau de recipe
-        // Tu send au coordinator le delagete.didSelctRecipe(recipe)
+        guard index < requestedRecipes.count else { return }
+
+        delegate?.didSelectRecipe(recipe: requestedRecipes[index])
     }
 }
+

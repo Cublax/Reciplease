@@ -14,7 +14,7 @@ final class ListingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var dishImageView: UIImageView!
     @IBOutlet weak var dishNameLabel: UILabel!
-    @IBOutlet weak var dishDescriptionLabel: UILabel!
+    @IBOutlet weak var originRecipeLabel: UILabel!
     
     // MARK: - Private properties
     
@@ -34,11 +34,12 @@ final class ListingTableViewCell: UITableViewCell {
     
     func configureCell() {
         self.dishNameLabel.text = recipes.name
-        self.dishDescriptionLabel.text = recipes.ingredient.joined(separator: ", ")
+        self.originRecipeLabel.text = recipes.source
         cancellationToken = RequestCancellationToken()
         imageProvider?.setImage(for: recipes.urlImage, cancelledBy: cancellationToken) { (image) in
             DispatchQueue.main.async {
                 self.dishImageView.image = image
+                self.dishImageView.contentMode = .scaleAspectFill
             }
         }
     }
@@ -47,7 +48,8 @@ final class ListingTableViewCell: UITableViewCell {
         cancellationToken = nil
         dishImageView.image = nil
         dishNameLabel.text = nil
-        dishDescriptionLabel.text = nil
+        originRecipeLabel.text = nil
     }
 }
+
 

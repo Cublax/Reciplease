@@ -29,16 +29,17 @@ final class FavoriteCoordinator {
     }
     
     private func showList() {
-        let viewController = screens.createFavoritesRecipesViewController(delegate: self)
+        let viewController = screens.createFavoriteRecipesViewController(delegate: self)
         presenter.show(viewController, sender: nil)
+    }
+    
+    private func showRecipe(of recipe: VisibleRecipe) {
+        
     }
 }
 
-extension FavoriteCoordinator: RecipeViewModelDelegate {
-    
-}
-
-
 extension FavoriteCoordinator: ListingViewModelDelegate {
-    
+    func didSelectRecipe(recipe: VisibleRecipe) {
+        showRecipe(of: recipe)
+    }
 }

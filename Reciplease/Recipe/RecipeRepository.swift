@@ -25,6 +25,7 @@ final class RecipeRepository: RecipeRepositoryType {
     init() {
         self.client = HTTPClient(cancellationToken: token)
     }
+    
     // MARK: - Requests
 
 }

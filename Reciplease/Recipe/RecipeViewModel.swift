@@ -8,29 +8,31 @@
 
 import Foundation
 
-protocol RecipeViewModelDelegate: class {
-     
-}
-
 final class RecipeViewModel {
     
     // MARK: - Properties
 
     private let repository: RecipeRepositoryType
     
-    private weak var delegate: RecipeViewModelDelegate?
+    var recipe: VisibleRecipe
     
     // MARK: - Initializer
 
-    init(repository: RecipeRepositoryType, delegate: RecipeViewModelDelegate?) {
+    init(repository: RecipeRepositoryType, recipe: VisibleRecipe) {
         self.repository = repository
-        self.delegate = delegate
+        self.recipe = recipe
     }
     // MARK: - Outputs
 
     func viewDidLoad() {
-        
+      informations?(recipe)
     }
+    
+    var informations: ((VisibleRecipe) -> Void)?
+    
     // MARK: - Inputs
 
+    func addToFavorite(with: VisibleRecipe) {
+        
+    }
 }

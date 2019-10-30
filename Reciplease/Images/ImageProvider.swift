@@ -34,7 +34,7 @@ final class ImageProvider {
     // MARK: - Public
 
     func setImage(for url: String, cancelledBy token: RequestCancellationToken, callback: @escaping (UIImage?) -> Void) {
-        let uid = url.hashValue.description
+         let uid = url.hashValue.description
         let cachedImage = CachedImage(with: Key(string: uid), in: cache)
         switch cachedImage {
         case .exists(data: let data):

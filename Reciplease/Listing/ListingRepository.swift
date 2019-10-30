@@ -11,6 +11,7 @@ import Foundation
 struct Recipe: Equatable {
     let name: String
     let urlImage: String
+    let source: String
     let ingredient : [String]
 }
 
@@ -41,7 +42,7 @@ final class SearchListingRepository: ListingRepositoryType {
 
           client.request(type: RecipeResponse.self, requestType: .GET, url: url) { response in
     
-            let item: [Recipe] = response.hits.map { Recipe(name: $0.recipe.label, urlImage: $0.recipe.image, ingredient: $0.recipe.ingredientLines) }
+            let item: [Recipe] = response.hits.map { Recipe(name: $0.recipe.label, urlImage: $0.recipe.image, source: $0.recipe.source, ingredient: $0.recipe.ingredientLines) }
                
             callback(item)
         }
