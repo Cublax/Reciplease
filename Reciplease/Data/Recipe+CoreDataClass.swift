@@ -2,7 +2,7 @@
 //  Recipe+CoreDataClass.swift
 //  
 //
-//  Created by Alexandre Quiblier on 22/10/2019.
+//  Created by Alexandre Quiblier on 31/10/2019.
 //
 //
 

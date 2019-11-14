@@ -2,18 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Reciplease/Alerts/Ingredient+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Reciplease/Alerts/Ingredient+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Reciplease/Alerts/Recipe+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Reciplease/Alerts/Recipe+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:Reciplease.xcodeproj">
    </FileRef>
    <FileRef

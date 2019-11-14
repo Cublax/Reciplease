@@ -11,15 +11,12 @@ import Foundation
 final class RecipeViewModel {
     
     // MARK: - Properties
-
-    private let repository: RecipeRepositoryType
     
     var recipe: VisibleRecipe
     
     // MARK: - Initializer
 
-    init(repository: RecipeRepositoryType, recipe: VisibleRecipe) {
-        self.repository = repository
+    init(recipe: VisibleRecipe) {
         self.recipe = recipe
     }
     // MARK: - Outputs
@@ -32,7 +29,5 @@ final class RecipeViewModel {
     
     // MARK: - Inputs
 
-    func addToFavorite(with: VisibleRecipe) {
-        
-    }
+
 }

@@ -2,7 +2,7 @@
 //  Recipe+CoreDataProperties.swift
 //  
 //
-//  Created by Alexandre Quiblier on 22/10/2019.
+//  Created by Alexandre Quiblier on 31/10/2019.
 //
 //
 
@@ -17,7 +17,8 @@ extension Recipe {
     }
 
     @NSManaged public var name: String?
-    @NSManaged public var url: String?
     @NSManaged public var source: String?
+    @NSManaged public var url: String?
+    @NSManaged public var servings: String?
 
 }

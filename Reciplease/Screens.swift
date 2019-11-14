@@ -42,9 +42,7 @@ extension Screens {
 extension Screens {
     func createRecipeViewController(recipe: VisibleRecipe) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "RecipeViewController") as! RecipeViewController
-        let repository = RecipeRepository()
-        let viewModel = RecipeViewModel(repository: repository,
-                                        recipe: recipe)
+        let viewModel = RecipeViewModel(recipe: recipe)
         viewController.viewModel = viewModel
          viewController.imageProvider = context.imageProvider
         return viewController

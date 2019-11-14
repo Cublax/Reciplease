@@ -12,6 +12,8 @@ final class ListingTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var servingsNumberLabel: UILabel!
+    @IBOutlet weak var ingredientsNumberLabel: UILabel!
     @IBOutlet weak var dishImageView: UIImageView!
     @IBOutlet weak var dishNameLabel: UILabel!
     @IBOutlet weak var originRecipeLabel: UILabel!
@@ -35,6 +37,8 @@ final class ListingTableViewCell: UITableViewCell {
     func configureCell() {
         self.dishNameLabel.text = recipes.name
         self.originRecipeLabel.text = recipes.source
+        self.servingsNumberLabel.text = "\(recipes.servings)"
+        self.ingredientsNumberLabel.text = "\(recipes.ingredient.count)"
         cancellationToken = RequestCancellationToken()
         guard let url = URL(string: recipes.urlImage) else { return }
         imageProvider?.setImage(for: url, cancelledBy: cancellationToken) { [weak self] image in
@@ -50,6 +54,8 @@ final class ListingTableViewCell: UITableViewCell {
         dishImageView.image = nil
         dishNameLabel.text = nil
         originRecipeLabel.text = nil
+        ingredientsNumberLabel.text = nil
+        servingsNumberLabel.text = nil
     }
 }
 

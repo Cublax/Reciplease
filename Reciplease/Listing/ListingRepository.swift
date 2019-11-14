@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 struct Recipe: Equatable {
     let name: String
     let urlImage: String
+    let urlRecipe: String
     let source: String
+    let servings: Int
     let ingredient : [String]
 }
 
@@ -38,7 +41,8 @@ final class SearchListingRepository: ListingRepositoryType {
       // MARK: - Requests
       
        func getRecipes(for ingredients: [Ingredient], success: @escaping ([Recipe]) -> Void, failure: @escaping (() -> Void)) {
-        let myurl: String = "https://api.edamam.com/search?q=\(ingredients.joined(separator: ","))&app_id=${64cf657f}&app_key=${bae5284db1b8f58ddf457036eb46c3d5}2"
+        let myurl: String = "https://api.edamam.com/search?q=\(ingredients.joined(separator: ","))&app_id=${64cf657f}&app_key=${bae5284db1b8f58ddf457036eb46c3d5}&from=0&to=50"
+        
         guard let urlForRequest = myurl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return}
         guard let url = URL(string: urlForRequest) else {return}
 
@@ -49,26 +53,25 @@ final class SearchListingRepository: ListingRepositoryType {
             .processCodableResponse { (response: HTTPResponse<RecipeResponse>) in
                 switch response.result {
                 case .success(let response):
-                    let item: [Recipe] = response.hits.map { Recipe(name: $0.recipe.label, urlImage: $0.recipe.image, source: $0.recipe.source, ingredient: $0.recipe.ingredientLines) }
+                    let item: [Recipe] = response.hits.map { Recipe(name: $0.recipe.label, urlImage: $0.recipe.image, urlRecipe: $0.recipe.url, source: $0.recipe.source, servings: $0.recipe.yield, ingredient: $0.recipe.ingredientLines) }
                  success(item)
                 case .failure(_):
                     failure()
                 }
         }
-          
         }
       }
-    
-    
 
 
 final class FavoriteListingRepository: ListingRepositoryType {
 
-    // Let coredata blabla
     func getRecipes(for ingredients: [Ingredient], success: @escaping ([Recipe]) -> Void, failure: @escaping (() -> Void)) {
+      
         
+        }
+
     }
-}
+
 
 
 

@@ -23,6 +23,7 @@ struct RecipeResponse: Codable {
         struct Recipe: Codable {
             let label: String
             let image: String
+            let yield: Int
             let source: String
             let url: String
             let shareAs: String

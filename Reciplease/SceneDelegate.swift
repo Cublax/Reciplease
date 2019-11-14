@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let imageRepository = ImageRepository(networkClient: client)
         
         let imageProvider = ImageProvider(repository: imageRepository,
-                                                 cache: self.imageCache)
+                                          cache: self.imageCache)
         
         context = Context(networkClient: client,
                           imageProvider: imageProvider)
@@ -46,5 +46,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 }
-
-

@@ -11,7 +11,9 @@ import Foundation
 struct VisibleRecipe {
     let name: String
     let urlImage: String
+    let urlRecipe: String
     let source: String
+    let servings: Int
     let ingredient : [String]
 }
 
@@ -44,12 +46,16 @@ final class ListingViewModel {
     var recipes: (([VisibleRecipe]) -> Void)?
     
     func viewDidLoad() {
-        repository.getRecipes(for: ingredients, success: { (recipes) in
-            let item: [VisibleRecipe] = recipes.map { VisibleRecipe(name: $0.name, urlImage: $0.urlImage, source: $0.source, ingredient: $0.ingredient) }
-            self.requestedRecipes = item
-        }, failure: { [weak self] in
-            //self?.delegate?.shouldDisplayAlert(for: .requestError)
-        })
+       refresh()
+    }
+    
+    private func refresh() {
+                   repository.getRecipes(for: ingredients, success: { (recipes) in
+                    let item: [VisibleRecipe] = recipes.map { VisibleRecipe(name: $0.name, urlImage: $0.urlImage, urlRecipe: $0.urlRecipe, source: $0.source, servings: $0.servings, ingredient: $0.ingredient) }
+                       self.requestedRecipes = item
+                   }, failure: { [weak self] in
+                       //self?.delegate?.shouldDisplayAlert(for: .requestError)
+                   })
     }
     
     // MARK: - Inputs
