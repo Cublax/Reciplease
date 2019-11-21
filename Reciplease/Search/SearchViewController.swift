@@ -8,9 +8,10 @@
 
 import UIKit
 
-final class SearchViewController: UIViewController {
+final class SearchViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Outlets
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var firstQuestionLabel: UILabel!
@@ -29,7 +30,7 @@ final class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Research"
+        addIngredientTextField.delegate = self
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         
@@ -43,6 +44,10 @@ final class SearchViewController: UIViewController {
                 self?.dataSource.update(with: items)
                 self?.tableView.reloadData()
             }
+        }
+        
+        viewModel.searchButtonHidden = { [weak self] state in
+            self?.searchForRecipeButton.isHidden = state
         }
     }
     
@@ -59,6 +64,17 @@ final class SearchViewController: UIViewController {
     
     @IBAction func didPressSearchForRecipeButton(_ sender: Any) {
         viewModel.searchForIngredients()
+    }
+    
+    // MARK: - Delegate
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        addIngredientTextField.resignFirstResponder()
+        return true
     }
 }
 

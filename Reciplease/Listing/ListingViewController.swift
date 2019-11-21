@@ -29,7 +29,6 @@ final class ListingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Recipes"
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         

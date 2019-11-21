@@ -41,10 +41,11 @@ final class RecipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setFavorite(favorite: true)
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         
-        bind(to: dataSource)
         bind(to: viewModel)
         viewModel.viewDidLoad()
     }
@@ -61,11 +62,26 @@ final class RecipeViewController: UIViewController {
                 self?.tableView.reloadData()
             }
         }
+        
+        viewModel.isFavorite = { [weak self] state in
+            self?.setFavorite(favorite: state)
+        }
     }
     
-    private func bind(to dataSource: RecipeDataSource) {
+    private func setFavorite(favorite: Bool) {
+        guard let selected = UIImage(systemName: "bookmark.fill") else { return }
+        guard let unselected = UIImage(systemName: "bookmark") else { return }
+        var hearth: UIImage
         
+        switch favorite {
+        case true:
+            hearth = selected
+        case false:
+            hearth = unselected
+        }
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: hearth, style: .done, target: self, action: #selector(didPressFavorite))
     }
+    
     
     private func configureImage(with url: String) {
         cancellationToken = RequestCancellationToken()
@@ -76,9 +92,9 @@ final class RecipeViewController: UIViewController {
         }
     }
     
-    @IBAction func AddFavorite(_ sender: Any) {
-        viewModel.addFavorite()
-    }
+    @objc private func didPressFavorite() {
+           viewModel.clickedOnFavorite()
+       }
     
     @IBAction func getDirectionsButton(_ sender: Any) {
         guard let url = URL(string: recipe!.urlRecipe) else { return }

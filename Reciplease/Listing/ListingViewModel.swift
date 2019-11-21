@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct VisibleRecipe {
+struct VisibleRecipe: Equatable {
     let name: String
     let urlImage: String
     let urlRecipe: String

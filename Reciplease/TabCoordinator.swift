@@ -28,11 +28,13 @@ final class TabBarSource: TabBarSourceType {
     }
     
     private func tabBarIconInitializer() {
-        let searchIcon = UIImage(systemName: "bubble.left.and.bubble.right")
-        let filledSearchIcon = UIImage(systemName: "bubble.left.and.bubble.right.fill")
+        UITabBar.appearance().barTintColor = #colorLiteral(red: 0.2134923041, green: 0.2007651627, blue: 0.196667999, alpha: 1)
+        UITabBar.appearance().tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        let searchIcon = UIImage(systemName: "magnifyingglass.circle")
+        let filledSearchIcon = UIImage(systemName: "magnifyingglass.circle.fill")
         self[.search].tabBarItem = UITabBarItem(title: "Search", image: searchIcon, selectedImage: filledSearchIcon)
-        let favoriteIcon = UIImage(systemName: "sun.min")
-        let filledFavoriteIcon = UIImage(systemName: "sun.min.fill")
+        let favoriteIcon = UIImage(systemName: "heart")
+        let filledFavoriteIcon = UIImage(systemName: "heart.fill")
         self[.favorite].tabBarItem = UITabBarItem(title: "Favorite", image: favoriteIcon, selectedImage: filledFavoriteIcon)
     }
 }

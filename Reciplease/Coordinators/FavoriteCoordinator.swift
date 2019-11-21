@@ -34,7 +34,8 @@ final class FavoriteCoordinator {
     }
     
     private func showRecipe(of recipe: VisibleRecipe) {
-        
+        let viewController = screens.createRecipeViewController(recipe: recipe)
+        presenter.show(viewController, sender: nil)
     }
     
     func showAlert(for type: AlertType) {

@@ -63,8 +63,8 @@ fileprivate final class SearchViewModelTests: XCTestCase {
         let viewModel = SearchViewModel(delegate: delegate)
         
         
-          let expectedResult = ["Patatas"]
-    
+        let expectedResult = ["Patatas"]
+        
         viewModel.viewDidLoad()
         
         viewModel.addIngredient(for: "Patatas")

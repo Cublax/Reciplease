@@ -19,6 +19,11 @@ final class SearchViewModel {
     private var ingredients: [Ingredient] = [] {
         didSet {
             visibleItems?(ingredients)
+            if ingredients.isEmpty == true {
+                searchButtonHidden?(true)
+            } else {
+                searchButtonHidden?(false)
+            }
         }
     }
     
@@ -30,10 +35,12 @@ final class SearchViewModel {
     // MARK: - Outputs
     
     func viewDidLoad() {
-    
+        searchButtonHidden?(true)
     }
     
     var visibleItems: (([String]) -> Void)?
+    
+    var searchButtonHidden: ((Bool) -> Void)?
     
     // MARK: - Inputs
     
