@@ -10,22 +10,22 @@ import UIKit
 
 final class ListingDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     
-       // MARK: - Private
-       
-       private var items: [VisibleRecipe] = []
-       
-       // MARK: - Public
+    // MARK: - Private
     
-        var imageProvider: ImageProvider!
+    private var items: [VisibleRecipe] = []
     
-        func update(with items: [VisibleRecipe]) {
-          self.items = items
-       }
+    // MARK: - Public
     
-     var didSelectItemAtIndex: ((Int) -> Void)?
+    var imageProvider: ImageProvider!
+    
+    func update(with items: [VisibleRecipe]) {
+        self.items = items
+    }
+    
+    var didSelectItemAtIndex: ((Int) -> Void)?
     
     // MARK: - Initializer
-
+    
     init(imageProvider: ImageProvider) {
         self.imageProvider = imageProvider
     }
@@ -34,26 +34,26 @@ final class ListingDataSource: NSObject, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
-          }
+    }
     
-          func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            guard indexPath.item < items.count else { fatalError() }
-            let visibleRecipe = items[indexPath.item]
-              let cell = tableView.dequeueReusableCell(withIdentifier: "ListingTableViewCell", for: indexPath) as! ListingTableViewCell
-            cell.configure(with: visibleRecipe, imageProvider: imageProvider)
-              return cell
-          }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard indexPath.item < items.count else { fatalError() }
+        let visibleRecipe = items[indexPath.item]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListingTableViewCell", for: indexPath) as! ListingTableViewCell
+        cell.configure(with: visibleRecipe, imageProvider: imageProvider)
+        return cell
+    }
     
     // MARK: - UITableViewDataSource
     
-   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         guard indexPath.item < items.count else {
-             assertionFailure("Index out of Range")
-             return
-         }
-         
-         let index = indexPath.item
-         didSelectItemAtIndex?(index)
-     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.item < items.count else {
+            assertionFailure("Index out of Range")
+            return
+        }
+        
+        let index = indexPath.item
+        didSelectItemAtIndex?(index)
+    }
 }
 

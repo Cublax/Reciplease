@@ -445,7 +445,6 @@
                                 </state>
                                 <connections>
                                     <action selector="AddFavorite:" destination="Rke-tb-cQT" eventType="touchUpInside" id="8h6-9B-s9s"/>
-                                    <action selector="AddFavorite:" destination="qbb-YR-KGL" eventType="touchUpInside" id="M4C-5x-NbP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -487,9 +486,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rDT-IU-uhU" sceneMemberID="firstResponder"/>
-                <exit id="qbb-YR-KGL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2044" y="130"/>
+            <point key="canvasLocation" x="2044" y="129.98500749625188"/>
         </scene>
     </scenes>
     <resources>

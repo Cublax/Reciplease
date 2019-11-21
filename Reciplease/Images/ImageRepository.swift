@@ -13,17 +13,17 @@ protocol ImageRepositoryType {
 }
 
 final class ImageRepository: ImageRepositoryType {
-
+    
     // MARK: - Properties
-
+    
     private let networkClient: HTTPClient
-
+    
     init(networkClient: HTTPClient) {
         self.networkClient = networkClient
     }
-
+    
     // MARK: - ImageRepositoryType
-
+    
     func downloadImage(for url: URL,
                        cancelledBy cancellationToken: RequestCancellationToken,
                        callback: @escaping (Data?) -> Void) {

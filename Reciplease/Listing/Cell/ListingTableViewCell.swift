@@ -42,7 +42,7 @@ final class ListingTableViewCell: UITableViewCell {
         cancellationToken = RequestCancellationToken()
         guard let url = URL(string: recipes.urlImage) else { return }
         imageProvider?.setImage(for: url, cancelledBy: cancellationToken) { [weak self] image in
-                   DispatchQueue.main.async {
+            DispatchQueue.main.async {
                 self?.dishImageView.image = image
                 self?.dishImageView.contentMode = .scaleAspectFill
             }

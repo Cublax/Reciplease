@@ -18,10 +18,10 @@ final class ListingViewController: UIViewController {
     
     var viewModel: ListingViewModel!
     
-     var imageProvider: ImageProvider!
+    var imageProvider: ImageProvider!
     
     private lazy var dataSource: ListingDataSource = {
-         return ListingDataSource(imageProvider: imageProvider)
+        return ListingDataSource(imageProvider: imageProvider)
     }()
     
     // MARK: - View life cycle
@@ -29,7 +29,7 @@ final class ListingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         title = "Recipes"
+        title = "Recipes"
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         

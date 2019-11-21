@@ -13,12 +13,12 @@ struct RecipeResponse: Codable {
     let q: String
     let from, to: Int
     let hits: [Hit]
-
+    
     // MARK: - Hit
     struct Hit: Codable {
         let recipe: Recipe
         let bookmarked, bought: Bool
-
+        
         // MARK: - Recipe
         struct Recipe: Codable {
             let label: String

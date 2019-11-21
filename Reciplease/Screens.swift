@@ -14,9 +14,9 @@ final class Screens {
     
     let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: Screens.self))
     private let context: Context
-
+    
     // MARK: - Initializer
-
+    
     init(context: Context) {
         self.context = context
     }
@@ -42,9 +42,11 @@ extension Screens {
 extension Screens {
     func createRecipeViewController(recipe: VisibleRecipe) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "RecipeViewController") as! RecipeViewController
-        let viewModel = RecipeViewModel(recipe: recipe)
+        let repository = RecipeRepository(context: context.stack.persistentContainer.viewContext)
+        let viewModel = RecipeViewModel(recipe: recipe,
+                                        repository: repository)
         viewController.viewModel = viewModel
-         viewController.imageProvider = context.imageProvider
+        viewController.imageProvider = context.imageProvider
         return viewController
     }
 }
@@ -53,6 +55,7 @@ extension Screens {
 
 protocol ListingViewModelDelegate: class {
     func didSelectRecipe(recipe: VisibleRecipe)
+    func shouldDisplayAlert(for type: AlertType)
 }
 
 extension Screens {
@@ -63,14 +66,14 @@ extension Screens {
                                          delegate: delegate,
                                          ingredients: ingredients)
         viewController.viewModel = viewModel
-         viewController.imageProvider = context.imageProvider
+        viewController.imageProvider = context.imageProvider
         return viewController
         
     }
-
+    
     func createFavoriteRecipesViewController(delegate: ListingViewModelDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "ListingViewController") as! ListingViewController
-        let repository = FavoriteListingRepository()
+        let repository = FavoriteListingRepository(context: context.stack.persistentContainer.viewContext)
         let viewModel = ListingViewModel(repository: repository,
                                          delegate: delegate,
                                          ingredients: [])
@@ -79,3 +82,20 @@ extension Screens {
         return viewController
     }
 }
+
+// MARK: - Alert
+
+extension Screens {
+    func createAlert(for type: AlertType) -> UIAlertController {
+        let alert = Alert(type: type)
+        let alertController = UIAlertController(title: alert.title,
+                                                message: alert.message,
+                                                preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok",
+                                   style: .cancel,
+                                   handler: nil)
+        alertController.addAction(action)
+        return alertController
+    }
+}
+

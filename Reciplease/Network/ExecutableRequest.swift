@@ -9,13 +9,13 @@
 import Foundation
 
 final class ExecutableRequest {
-
+    
     private let responsePromise: Promise<Data>
-
+    
     init(promise: Promise<Data>) {
         self.responsePromise = promise
     }
-
+    
     func processCodableResponse<D: Codable>(callback: @escaping (HTTPResponse<D>) -> Void) {
         responsePromise.observe { result in
             switch result {
@@ -31,7 +31,7 @@ final class ExecutableRequest {
             }
         }
     }
-
+    
     public func processDataResponse(callback: @escaping (HTTPResponse<Data>) -> Void) {
         responsePromise.observe { (result) in
             switch result {

@@ -26,12 +26,12 @@ final class SearchDataSource: NSObject, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ingredients.count
-          }
-          
-          func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            guard indexPath.item < ingredients.count else { fatalError() }
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
-            cell.configure(with: ingredients[indexPath.row])
-            return cell
-          }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard indexPath.item < ingredients.count else { fatalError() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
+        cell.configure(with: ingredients[indexPath.row])
+        return cell
+    }
 }

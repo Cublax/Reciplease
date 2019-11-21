@@ -27,7 +27,7 @@ class Promise<T> {
     }
     
     // MARK: - Public
-
+    
     func resolve(with value: T, statusCode: Int?) {
         result = .value(value, statusCode)
     }

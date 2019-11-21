@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 final class RecipeViewController: UIViewController {
     
@@ -76,7 +77,7 @@ final class RecipeViewController: UIViewController {
     }
     
     @IBAction func AddFavorite(_ sender: Any) {
-        
+        viewModel.addFavorite()
     }
     
     @IBAction func getDirectionsButton(_ sender: Any) {

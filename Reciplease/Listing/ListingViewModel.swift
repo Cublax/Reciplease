@@ -32,7 +32,7 @@ final class ListingViewModel {
             recipes?(self.requestedRecipes)
         }
     }
- 
+    
     // MARK: - Init
     
     init(repository: ListingRepositoryType, delegate: ListingViewModelDelegate?, ingredients: [Ingredient]) {
@@ -40,29 +40,28 @@ final class ListingViewModel {
         self.delegate = delegate
         self.ingredients = ingredients
     }
-
+    
     // MARK: - Outputs
     
     var recipes: (([VisibleRecipe]) -> Void)?
     
     func viewDidLoad() {
-       refresh()
+        refresh()
     }
     
     private func refresh() {
-                   repository.getRecipes(for: ingredients, success: { (recipes) in
-                    let item: [VisibleRecipe] = recipes.map { VisibleRecipe(name: $0.name, urlImage: $0.urlImage, urlRecipe: $0.urlRecipe, source: $0.source, servings: $0.servings, ingredient: $0.ingredient) }
-                       self.requestedRecipes = item
-                   }, failure: { [weak self] in
-                       //self?.delegate?.shouldDisplayAlert(for: .requestError)
-                   })
+        repository.getRecipes(for: ingredients, success: { (recipes) in
+            self.requestedRecipes = recipes.map { VisibleRecipe(name: $0.name, urlImage: $0.urlImage, urlRecipe: $0.urlRecipe, source: $0.source, servings: $0.servings, ingredient: $0.ingredient) }
+        }, failure: { [weak self] in
+            self?.delegate?.shouldDisplayAlert(for: .requestError)
+        })
     }
     
     // MARK: - Inputs
-
+    
     func didSelectRecipe(at index: Int) {
         guard index < requestedRecipes.count else { return }
-
+        
         delegate?.didSelectRecipe(recipe: requestedRecipes[index])
     }
 }

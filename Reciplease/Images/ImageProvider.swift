@@ -12,27 +12,27 @@ typealias Key = NSString
 typealias Object = NSData
 
 final class ImageProvider {
-
+    
     // MARK: - Private properties
-
+    
     private let repository: ImageRepositoryType
-
+    
     private var cache: NSCache<Key, Object>
-
+    
     fileprivate enum CachedImage {
         case exists(data: NSData)
         case new
     }
-
+    
     // MARK: - Initializer
-
+    
     init(repository: ImageRepositoryType, cache: NSCache<Key, Object>) {
         self.repository = repository
         self.cache = NSCache<Key, Object>()
     }
-
+    
     // MARK: - Public
-
+    
     func setImage(for url: URL, cancelledBy cancellationToken: RequestCancellationToken, callback: @escaping (UIImage?) -> Void) {
         let uid = url.hashValue.description
         let cachedImage = CachedImage(with: Key(string: uid), in: cache)

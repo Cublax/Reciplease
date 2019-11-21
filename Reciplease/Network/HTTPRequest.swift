@@ -34,7 +34,7 @@ struct HTTPRequest {
     let method: HTTPMethod
     
     let parameters: HTTPRequestParameters?
-
+    
     let timeout: TimeInterval
     
     init(baseURL: URL, path: String?, method: HTTPMethod, parameters: HTTPRequestParameters? = nil, timeout: TimeInterval = 10) throws {

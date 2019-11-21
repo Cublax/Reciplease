@@ -9,28 +9,28 @@ import UIKit
 
 final class RecipeDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     
-   // MARK: - Private
-       
+    // MARK: - Private
+    
     private var ingredients: [String] = []
-       
-       // MARK: - Public
+    
+    // MARK: - Public
     
     func update(with ingredients: [String]) {
-            self.ingredients = ingredients
-       }
-   
+        self.ingredients = ingredients
+    }
+    
     // MARK: - UITableViewDelegate
-       
-       func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return ingredients.count
-             }
-             
-             func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-               guard indexPath.item < ingredients.count else { fatalError() }
-               let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeTableViewCell", for: indexPath) as! RecipeTableViewCell
-               cell.configure(with: ingredients[indexPath.row])
-               return cell
-             }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ingredients.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard indexPath.item < ingredients.count else { fatalError() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeTableViewCell", for: indexPath) as! RecipeTableViewCell
+        cell.configure(with: ingredients[indexPath.row])
+        return cell
+    }
 }
 
 

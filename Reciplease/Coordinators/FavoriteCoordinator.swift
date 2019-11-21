@@ -36,9 +36,18 @@ final class FavoriteCoordinator {
     private func showRecipe(of recipe: VisibleRecipe) {
         
     }
+    
+    func showAlert(for type: AlertType) {
+        let alert = screens.createAlert(for: type)
+        presenter.visibleViewController?.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension FavoriteCoordinator: ListingViewModelDelegate {
+    func shouldDisplayAlert(for type: AlertType) {
+        showAlert(for: type)
+    }
+    
     func didSelectRecipe(recipe: VisibleRecipe) {
         showRecipe(of: recipe)
     }

@@ -30,6 +30,7 @@ final class SearchViewModel {
     // MARK: - Outputs
     
     func viewDidLoad() {
+    
     }
     
     var visibleItems: (([String]) -> Void)?

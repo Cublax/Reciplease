@@ -14,20 +14,25 @@ final class RecipeViewModel {
     
     var recipe: VisibleRecipe
     
+    private let repository: RecipeRepositoryType
+    
     // MARK: - Initializer
-
-    init(recipe: VisibleRecipe) {
+    
+    init(recipe: VisibleRecipe, repository: RecipeRepositoryType) {
         self.recipe = recipe
+        self.repository = repository
     }
     // MARK: - Outputs
-
+    
     func viewDidLoad() {
-      informations?(recipe)
+        informations?(recipe)
     }
     
     var informations: ((VisibleRecipe) -> Void)?
     
     // MARK: - Inputs
-
-
+    
+    func addFavorite() {
+        repository.addToFavorite(recipe: recipe)
+    }
 }

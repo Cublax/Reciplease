@@ -23,18 +23,18 @@ final class TabBarSource: TabBarSourceType {
         UINavigationController(nibName: nil, bundle: nil)
     ]
     
-     init() {
-           tabBarIconInitializer()
-       }
-       
-       private func tabBarIconInitializer() {
-           let searchIcon = UIImage(systemName: "bubble.left.and.bubble.right")
-           let filledSearchIcon = UIImage(systemName: "bubble.left.and.bubble.right.fill")
-           self[.search].tabBarItem = UITabBarItem(title: "Search", image: searchIcon, selectedImage: filledSearchIcon)
-           let favoriteIcon = UIImage(systemName: "sun.min")
-           let filledFavoriteIcon = UIImage(systemName: "sun.min.fill")
-           self[.favorite].tabBarItem = UITabBarItem(title: "Favorite", image: favoriteIcon, selectedImage: filledFavoriteIcon)
-       }
+    init() {
+        tabBarIconInitializer()
+    }
+    
+    private func tabBarIconInitializer() {
+        let searchIcon = UIImage(systemName: "bubble.left.and.bubble.right")
+        let filledSearchIcon = UIImage(systemName: "bubble.left.and.bubble.right.fill")
+        self[.search].tabBarItem = UITabBarItem(title: "Search", image: searchIcon, selectedImage: filledSearchIcon)
+        let favoriteIcon = UIImage(systemName: "sun.min")
+        let filledFavoriteIcon = UIImage(systemName: "sun.min.fill")
+        self[.favorite].tabBarItem = UITabBarItem(title: "Favorite", image: favoriteIcon, selectedImage: filledFavoriteIcon)
+    }
 }
 
 extension TabBarSourceType {
@@ -65,7 +65,7 @@ final class TabCoordinator: NSObject {
     private var source: TabBarSource = TabBarSource()
     
     // MARK: - Initializer
-
+    
     init(presenter: UIWindow, context: Context) {
         self.presenter = presenter
         

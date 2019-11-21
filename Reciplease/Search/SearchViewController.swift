@@ -29,14 +29,14 @@ final class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         title = "Research"
+        title = "Research"
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         
         bind(to: viewModel)
         viewModel.viewDidLoad()
     }
-
+    
     private func bind(to searchViewModel: SearchViewModel) {
         viewModel.visibleItems = { [weak self] items in
             DispatchQueue.main.async {
@@ -46,7 +46,7 @@ final class SearchViewController: UIViewController {
         }
     }
     
-        // MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func didPressAddButton(_ sender: Any) {
         guard let ingredient = addIngredientTextField.text else {return}
@@ -59,10 +59,10 @@ final class SearchViewController: UIViewController {
     
     @IBAction func didPressSearchForRecipeButton(_ sender: Any) {
         viewModel.searchForIngredients()
-        }
     }
-    
-    
+}
+
+
 
 
 

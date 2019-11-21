@@ -9,13 +9,13 @@
 import Foundation
 
 final class ExecutableDownloadRequest {
-
+    
     private let responsePromise: Promise<URL>
-
+    
     init(promise: Promise<URL>) {
         self.responsePromise = promise
     }
-
+    
     func processDownloadResponse(callback: @escaping (HTTPResponse<URL>) -> Void) {
         responsePromise.observe { result in
             switch result {
