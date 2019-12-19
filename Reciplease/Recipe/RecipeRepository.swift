@@ -17,10 +17,10 @@ protocol RecipeRepositoryType: class {
 
 final class RecipeRepository: RecipeRepositoryType {
     
-    private let context: NSManagedObjectContext
+    private let stack: CoreDataStack
     
-    init(context: NSManagedObjectContext) {
-        self.context = context
+    init(stack: CoreDataStack) {
+        self.stack = stack
     }
     
     func checkIfFavorite(recipeName: String, completion: (Bool) -> Void) {
@@ -28,7 +28,7 @@ final class RecipeRepository: RecipeRepositoryType {
         request.predicate = NSPredicate(format: "name == %@", recipeName)
         request.sortDescriptors = [NSSortDescriptor(keyPath: \RecipeEntity.name, ascending: true)]
         
-        guard let recipes = try? context.fetch(request) else { print("error") ; return }
+        guard let recipes = try? stack.context.fetch(request) else { print("error") ; return }
         
         if recipes == [] {completion(false); return }
         
@@ -36,14 +36,14 @@ final class RecipeRepository: RecipeRepositoryType {
     }
     
     func addToFavorite(recipe: VisibleRecipe) {
-        let recipeObject = RecipeEntity(context: context)
+        let recipeObject = RecipeEntity(context: stack.context)
         recipeObject.name = recipe.name
         recipeObject.urlImage = recipe.urlImage
         recipeObject.servings = "\(recipe.servings)"
         recipeObject.urlRecipe = recipe.urlRecipe
         recipeObject.ingredients = recipe.ingredient.joined(separator: "@")
         recipeObject.source = recipe.source
-        try? context.save()
+        stack.saveContext()
     }
     
     func removeFavorite(recipeName: String) {
@@ -52,13 +52,11 @@ final class RecipeRepository: RecipeRepositoryType {
         request.predicate = NSPredicate(format: "name == %@", recipeName)
         
         do {
-            let object = try context.fetch(request)
+            let object = try stack.context.fetch(request)
             if !object.isEmpty {
-                context.delete(object[0])
-                try? context.save()
+                stack.context.delete(object[0])
+                stack.saveContext()
             }
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
+        } catch {}
     }
 }

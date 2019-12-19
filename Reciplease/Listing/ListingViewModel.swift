@@ -51,7 +51,12 @@ final class ListingViewModel {
     
     private func refresh() {
         repository.getRecipes(for: ingredients, success: { (recipes) in
-            self.requestedRecipes = recipes.map { VisibleRecipe(name: $0.name, urlImage: $0.urlImage, urlRecipe: $0.urlRecipe, source: $0.source, servings: $0.servings, ingredient: $0.ingredient) }
+            self.requestedRecipes = recipes.map { VisibleRecipe(name: $0.name,
+                                                                urlImage: $0.urlImage,
+                                                                urlRecipe: $0.urlRecipe,
+                                                                source: $0.source,
+                                                                servings: $0.servings,
+                                                                ingredient: $0.ingredient)}
         }, failure: { [weak self] in
             self?.delegate?.shouldDisplayAlert(for: .requestError)
         })

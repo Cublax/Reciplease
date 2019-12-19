@@ -30,6 +30,7 @@ final class SearchViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         addIngredientTextField.delegate = self
         tableView.dataSource = dataSource
         tableView.delegate = dataSource

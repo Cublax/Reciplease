@@ -35,7 +35,6 @@ final class ListingViewController: UIViewController {
         bind(to: dataSource)
         bind(to: viewModel)
         viewModel.viewDidLoad()
-        
     }
     
     private func bind(to viewModel: ListingViewModel) {

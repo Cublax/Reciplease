@@ -6,7 +6,6 @@
 //  Copyright © 2019 Alexandre Quiblier. All rights reserved.
 //
 
-import Foundation
 import CoreData
 
 class RecipeEntity: NSManagedObject {}

@@ -16,7 +16,6 @@ final class SearchCoordinator {
     
     private let screens: Screens
     
-    
     // MARK: - Initializer
     
     init(presenter: UINavigationController, screens: Screens) {
@@ -45,7 +44,7 @@ final class SearchCoordinator {
         presenter.show(viewController, sender: nil)
     }
     
-    func showAlert(for type: AlertType) {
+    private func showAlert(for type: AlertType) {
         let alert = screens.createAlert(for: type)
         presenter.visibleViewController?.present(alert, animated: true, completion: nil)
     }

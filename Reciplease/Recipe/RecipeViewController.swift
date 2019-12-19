@@ -71,15 +71,15 @@ final class RecipeViewController: UIViewController {
     private func setFavorite(favorite: Bool) {
         guard let selected = UIImage(systemName: "bookmark.fill") else { return }
         guard let unselected = UIImage(systemName: "bookmark") else { return }
-        var hearth: UIImage
+        var bookmark: UIImage
         
         switch favorite {
         case true:
-            hearth = selected
+            bookmark = selected
         case false:
-            hearth = unselected
+            bookmark = unselected
         }
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: hearth, style: .done, target: self, action: #selector(didPressFavorite))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: bookmark, style: .done, target: self, action: #selector(didPressFavorite))
     }
     
     
@@ -88,13 +88,13 @@ final class RecipeViewController: UIViewController {
         guard let url = URL(string: url) else { return }
         imageProvider?.setImage(for: url, cancelledBy: cancellationToken) { [weak self] image in
             self?.dishImageView.image = image
-            self?.dishImageView.contentMode = .scaleAspectFit
+            self?.dishImageView.contentMode = .scaleAspectFill
         }
     }
     
     @objc private func didPressFavorite() {
-           viewModel.clickedOnFavorite()
-       }
+        viewModel.clickedOnFavorite()
+    }
     
     @IBAction func getDirectionsButton(_ sender: Any) {
         guard let url = URL(string: recipe!.urlRecipe) else { return }

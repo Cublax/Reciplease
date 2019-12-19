@@ -14,7 +14,6 @@ final class SearchTableViewCell: UITableViewCell {
     
     @IBOutlet weak var ingredientLabel: UILabel!
     
-    
     // MARK: - Configure
     
     func configure(with title: String) {

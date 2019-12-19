@@ -9,18 +9,18 @@
 import Foundation
 
 // MARK: - RecipeResponse
-struct RecipeResponse: Codable {
+struct RecipeResponse: Codable, Equatable {
     let q: String
     let from, to: Int
     let hits: [Hit]
     
     // MARK: - Hit
-    struct Hit: Codable {
+    struct Hit: Codable, Equatable {
         let recipe: Recipe
         let bookmarked, bought: Bool
         
         // MARK: - Recipe
-        struct Recipe: Codable {
+        struct Recipe: Codable, Equatable {
             let label: String
             let image: String
             let yield: Int

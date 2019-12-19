@@ -10,8 +10,6 @@ import UIKit
 
 final class SearchDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     
-    // MARK: - Properties
-    
     // MARK: - Private
     
     private var ingredients: [String] = []

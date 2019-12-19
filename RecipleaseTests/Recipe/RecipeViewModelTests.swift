@@ -40,9 +40,17 @@ fileprivate final class MockRecipeRepository2: RecipeRepositoryType {
 fileprivate final class RecipeViewModelTests: XCTestCase {
     
     func testGivenARecipeViewModelWhenAViewDidLoadThenGetInformationIfFavorite() {
-        let recipe = VisibleRecipe(name: "1", urlImage: "1", urlRecipe: "1", source: "1", servings: 1, ingredient: ["1"])
+        let recipe = VisibleRecipe(name: "1",
+                                   urlImage: "1",
+                                   urlRecipe: "1",
+                                   source: "1",
+                                   servings: 1,
+                                   ingredient: ["1"])
+        
         let repository = MockRecipeRepository()
-        let viewModel = RecipeViewModel(recipe: recipe, repository: repository)
+        let viewModel = RecipeViewModel(recipe: recipe,
+                                        repository: repository)
+        
         let expectation = self.expectation(description: "Returned true")
         
         viewModel.isFavorite = { answer in
@@ -55,9 +63,16 @@ fileprivate final class RecipeViewModelTests: XCTestCase {
     }
     
     func testGivenARecipeViewModelWhenclickedOnFavoriteThenIsFavoriteReturnFalse() {
-        let recipe = VisibleRecipe(name: "1", urlImage: "1", urlRecipe: "1", source: "1", servings: 1, ingredient: ["1"])
+        let recipe = VisibleRecipe(name: "1",
+                                   urlImage: "1",
+                                   urlRecipe: "1",
+                                   source: "1",
+                                   servings: 1,
+                                   ingredient: ["1"])
+        
         let repository = MockRecipeRepository()
-        let viewModel = RecipeViewModel(recipe: recipe, repository: repository)
+        let viewModel = RecipeViewModel(recipe: recipe,
+                                        repository: repository)
         
         let expectation = self.expectation(description: "Returned true")
         
@@ -77,7 +92,13 @@ fileprivate final class RecipeViewModelTests: XCTestCase {
     }
     
     func testGivenARecipeViewModelWhenclickedOnFavoriteThenIsFavoriteReturnTrue() {
-        let recipe = VisibleRecipe(name: "1", urlImage: "1", urlRecipe: "1", source: "1", servings: 1, ingredient: ["1"])
+        let recipe = VisibleRecipe(name: "1",
+                                   urlImage: "1",
+                                   urlRecipe: "1",
+                                   source: "1",
+                                   servings: 1,
+                                   ingredient: ["1"])
+        
         let repository = MockRecipeRepository2()
         let viewModel = RecipeViewModel(recipe: recipe, repository: repository)
         

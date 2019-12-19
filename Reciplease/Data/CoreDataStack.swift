@@ -9,20 +9,36 @@
 import UIKit
 import CoreData
 
+enum CoreDataStackType {
+    case prod
+    case test
+}
+
 final class CoreDataStack {
     
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Model")
+    private let container: NSPersistentContainer
+    
+    var context: NSManagedObjectContext {
+        return container.viewContext
+    }
+    
+    init(modelName: String, type: CoreDataStackType) {
+        container = NSPersistentContainer(name: modelName)
+        if type == .test {
+            let description = NSPersistentStoreDescription()
+            description.type = NSSQLiteStoreType
+            container.persistentStoreDescriptions = [description]
+        }
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
-        return container
-    }()
+    }
     
-    func saveContext () {
-        let context = persistentContainer.viewContext
+    // MARK: - Core Data Saving support
+    
+    func saveContext() {
         if context.hasChanges {
             do {
                 try context.save()

@@ -22,7 +22,7 @@ protocol ListingRepositoryType: class {
     func getRecipes(for ingredients: [Ingredient], success: @escaping ([Recipe]) -> Void, failure: @escaping (() -> Void))
 }
 
-final class SearchListingRepository: ListingRepositoryType {
+final class SearchRepository: ListingRepositoryType {
     
     // MARK: - Properties
     
@@ -32,10 +32,13 @@ final class SearchListingRepository: ListingRepositoryType {
     
     private let cancellationToken = RequestCancellationToken()
     
+    private let handler: RecipeResponseHandlerType
+    
     // MARK: - Initializer
     
-    init(networkClient: HTTPClient) {
+    init(networkClient: HTTPClient, handler: RecipeResponseHandlerType) {
         self.networkClient = networkClient
+        self.handler = handler
     }
     
     // MARK: - Requests
@@ -51,46 +54,7 @@ final class SearchListingRepository: ListingRepositoryType {
         networkClient
             .executeTask(urlRequest, cancelledBy: cancellationToken)
             .processCodableResponse { (response: HTTPResponse<RecipeResponse>) in
-                switch response.result {
-                case .success(let response):
-                    let item: [Recipe] = response.hits.map { Recipe(name: $0.recipe.label,
-                                                                    urlImage: $0.recipe.image,
-                                                                    urlRecipe: $0.recipe.url,
-                                                                    source: $0.recipe.source,
-                                                                    servings: $0.recipe.yield,
-                                                                    ingredient: $0.recipe.ingredientLines) }
-                    success(item)
-                case .failure(_):
-                    failure()
-                }
+                self.handler.process(response, success: success, failure: failure)
         }
     }
 }
-
-
-final class FavoriteListingRepository: ListingRepositoryType {
-    
-    let context: NSManagedObjectContext
-    
-    init(context: NSManagedObjectContext) {
-        self.context = context
-    }
-    
-    func getRecipes(for ingredients: [Ingredient], success: @escaping ([Recipe]) -> Void, failure: @escaping (() -> Void)) {
-        let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
-        guard let response = try? context.fetch(request) else {return}
-        let item : [Recipe] = response.map  { Recipe(name: $0.name!,
-                                                     urlImage: $0.urlImage ?? "",
-                                                     urlRecipe: $0.urlRecipe ?? "",
-                                                     source: $0.source ?? "",
-                                                     servings: Int($0.servings ?? "") ?? 1 ,
-                                                     ingredient: ($0.ingredients?.components(separatedBy: "@") ?? [""]))
-        }
-        success(item)
-    }
-}
-
-
-
-
-

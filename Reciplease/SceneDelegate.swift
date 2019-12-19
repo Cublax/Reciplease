@@ -34,7 +34,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let imageProvider = ImageProvider(repository: imageRepository,
                                           cache: self.imageCache)
         
-        stack = CoreDataStack()
+        stack = CoreDataStack(modelName: "Model", type: CoreDataStackType.prod)
         
         context = Context(networkClient: client,
                           imageProvider: imageProvider,

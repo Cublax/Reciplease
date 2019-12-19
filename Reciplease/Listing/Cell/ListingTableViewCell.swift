@@ -18,6 +18,8 @@ final class ListingTableViewCell: UITableViewCell {
     @IBOutlet weak var dishNameLabel: UILabel!
     @IBOutlet weak var originRecipeLabel: UILabel!
     
+    @IBOutlet weak var gradientView: GradientView!
+    
     // MARK: - Private properties
     
     private var recipes: VisibleRecipe!
@@ -35,6 +37,9 @@ final class ListingTableViewCell: UITableViewCell {
     }
     
     func configureCell() {
+        DispatchQueue.main.async {
+            self.setupGradientView()
+        }
         self.dishNameLabel.text = recipes.name
         self.originRecipeLabel.text = recipes.source
         self.servingsNumberLabel.text = "\(recipes.servings)"
@@ -56,6 +61,17 @@ final class ListingTableViewCell: UITableViewCell {
         originRecipeLabel.text = nil
         ingredientsNumberLabel.text = nil
         servingsNumberLabel.text = nil
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupGradientView()
+    }
+    
+    private func setupGradientView() {
+        let endColor = UIColor.black
+        let startColor = UIColor.clear
+        gradientView.updateGradient(with: .vertical, colors: startColor, endColor)
     }
 }
 

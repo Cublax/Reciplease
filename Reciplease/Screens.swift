@@ -42,7 +42,7 @@ extension Screens {
 extension Screens {
     func createRecipeViewController(recipe: VisibleRecipe) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "RecipeViewController") as! RecipeViewController
-        let repository = RecipeRepository(context: context.stack.persistentContainer.viewContext)
+        let repository = RecipeRepository(stack: context.stack)
         let viewModel = RecipeViewModel(recipe: recipe,
                                         repository: repository)
         viewController.viewModel = viewModel
@@ -61,7 +61,8 @@ protocol ListingViewModelDelegate: class {
 extension Screens {
     func createSearchRecipesViewController(delegate: ListingViewModelDelegate?, ingredients: [Ingredient]) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "ListingViewController") as! ListingViewController
-        let repository = SearchListingRepository(networkClient: context.networkClient)
+        let handler = RecipeResponseHandler()
+        let repository = SearchRepository(networkClient: context.networkClient, handler: handler)
         let viewModel = ListingViewModel(repository: repository,
                                          delegate: delegate,
                                          ingredients: ingredients)
@@ -73,7 +74,7 @@ extension Screens {
     
     func createFavoriteRecipesViewController(delegate: ListingViewModelDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "ListingViewController") as! ListingViewController
-        let repository = FavoriteListingRepository(context: context.stack.persistentContainer.viewContext)
+        let repository = FavoriteRepository(stack: context.stack)
         let viewModel = ListingViewModel(repository: repository,
                                          delegate: delegate,
                                          ingredients: [])
