@@ -11,17 +11,18 @@ import UIKit
 final class SearchCoordinator {
     
     // MARK: - Properties
-      
+    
     private let presenter: UINavigationController
     
     private let screens: Screens
     
     // MARK: - Initializer
-      
+    
     init(presenter: UINavigationController, screens: Screens) {
         self.presenter = presenter
         self.screens = screens
     }
+    
     // MARK: - Coordinator
     
     func start() {
@@ -32,8 +33,35 @@ final class SearchCoordinator {
         let viewController = screens.createSearchViewController(delegate: self)
         presenter.viewControllers = [viewController]
     }
+    
+    private func showList(ingredients: [Ingredient]) {
+        let viewController = screens.createSearchRecipesViewController(delegate: self, ingredients: ingredients)
+        presenter.show(viewController, sender: nil)
+    }
+    
+    private func showRecipe(of recipe: VisibleRecipe) {
+        let viewController = screens.createRecipeViewController(recipe: recipe)
+        presenter.show(viewController, sender: nil)
+    }
+    
+    private func showAlert(for type: AlertType) {
+        let alert = screens.createAlert(for: type)
+        presenter.visibleViewController?.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension SearchCoordinator: SearchViewModelDelegate {
+    func presentListing(with ingredients: [Ingredient]) {
+        showList(ingredients: ingredients)
+    }
+}
+
+extension SearchCoordinator: ListingViewModelDelegate {
+    func shouldDisplayAlert(for type: AlertType) {
+        showAlert(for: type)
+    }
     
+    func didSelectRecipe(recipe: VisibleRecipe) {
+        showRecipe(of: recipe)
+    }
 }

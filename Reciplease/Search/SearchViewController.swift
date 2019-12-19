@@ -8,9 +8,10 @@
 
 import UIKit
 
-final class SearchViewController: UIViewController {
+final class SearchViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Outlets
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var firstQuestionLabel: UILabel!
@@ -29,21 +30,57 @@ final class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addIngredientTextField.delegate = self
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         
-        bind(to: dataSource)
         bind(to: viewModel)
         viewModel.viewDidLoad()
     }
-
-    private func bind(to searchViewModel: SearchViewModel) {
     
+    private func bind(to searchViewModel: SearchViewModel) {
+        viewModel.visibleItems = { [weak self] items in
+            DispatchQueue.main.async {
+                self?.dataSource.update(with: items)
+                self?.tableView.reloadData()
+            }
+        }
+        
+        viewModel.searchButtonHidden = { [weak self] state in
+            self?.searchForRecipeButton.isHidden = state
+        }
     }
     
-    private func bind(to dataSource: SearchDataSource) {
-        
+    // MARK: - Actions
+    
+    @IBAction func didPressAddButton(_ sender: Any) {
+        guard let ingredient = addIngredientTextField.text else {return}
+        viewModel.addIngredient(for: ingredient)
+        addIngredientTextField.text = ""
+    }
+    @IBAction func didPressClearButton(_ sender: Any) {
+        viewModel.clearIngredientList()
+    }
+    
+    @IBAction func didPressSearchForRecipeButton(_ sender: Any) {
+        viewModel.searchForIngredients()
+    }
+    
+    // MARK: - Delegate
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        addIngredientTextField.resignFirstResponder()
+        return true
     }
 }
+
+
+
+
 
 

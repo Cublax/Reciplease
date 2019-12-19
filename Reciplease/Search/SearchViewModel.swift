@@ -8,30 +8,54 @@
 
 import Foundation
 
-protocol SearchViewModelDelegate: class {
-    
-}
+typealias Ingredient = String
 
 final class SearchViewModel {
     
     // MARK: - Properties
-
-    private let repository: SearchRepositoryType
     
     private weak var delegate: SearchViewModelDelegate?
     
+    private var ingredients: [Ingredient] = [] {
+        didSet {
+            visibleItems?(ingredients)
+            if ingredients.isEmpty == true {
+                searchButtonHidden?(true)
+            } else {
+                searchButtonHidden?(false)
+            }
+        }
+    }
+    
     // MARK: - Initializer
-
-    init(repository: SearchRepositoryType, delegate: SearchViewModelDelegate?) {
-        self.repository = repository
+    
+    init(delegate: SearchViewModelDelegate?) {
         self.delegate = delegate
     }
     // MARK: - Outputs
     
     func viewDidLoad() {
-        
+        searchButtonHidden?(true)
     }
-
+    
+    var visibleItems: (([String]) -> Void)?
+    
+    var searchButtonHidden: ((Bool) -> Void)?
+    
     // MARK: - Inputs
-
+    
+    func addIngredient(for ingredient: String) {
+        ingredients.append(ingredient)
+    }
+    
+    func clearIngredientList() {
+        ingredients = []
+    }
+    
+    func searchForIngredients() {
+        guard !ingredients.isEmpty else {return} // + alert?
+        delegate?.presentListing(with: ingredients)
+    }
 }
+
+
