@@ -6,8 +6,21 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = SwiftLint;
+			productName = SwiftLint;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		7828EF4F92E05BD4ABFA099BC5BBD8FE /* Pods-Reciplease-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5CA523FAB43CCD54E02BF31B27885F /* Pods-Reciplease-dummy.m */; };
+		8F171ACBAA053AA93CE01A01117D2E8A /* Pods-Reciplease-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5CA523FAB43CCD54E02BF31B27885F /* Pods-Reciplease-dummy.m */; };
 		D8FE51FA487212E00D1C4759FAE57C4A /* Pods-RecipleaseTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FBA70FAE8B289F5E2620BF6B10CBB7 /* Pods-RecipleaseTests-dummy.m */; };
 /* End PBXBuildFile section */
 
@@ -19,18 +32,26 @@
 			remoteGlobalIDString = 6FC77DCEA912690920F2046DF26F2904;
 			remoteInfo = "Pods-Reciplease";
 		};
+		6AA7BD75A1E41B53ABB3B86CFC05BA1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B60EC2A583F24ACBB69C113F5488B9;
+			remoteInfo = SwiftLint;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		25435A15E7126B49B8DE49B8E184B15F /* Pods-RecipleaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RecipleaseTests.release.xcconfig"; sourceTree = "<group>"; };
 		3BF8384036527F8F8B9953EDCE9EA97A /* Pods-Reciplease-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Reciplease-acknowledgements.plist"; sourceTree = "<group>"; };
-		4D2159C8223DD3978AB60E8643D8E6D7 /* libPods-Reciplease.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Reciplease.a"; path = "libPods-Reciplease.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D2159C8223DD3978AB60E8643D8E6D7 /* libPods-Reciplease.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Reciplease.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5E0475A6E74100EAC060C6549E8960 /* Pods-RecipleaseTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RecipleaseTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7BABB526A71FB183B6000A43BD2CDA2D /* libPods-RecipleaseTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-RecipleaseTests.a"; path = "libPods-RecipleaseTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BABB526A71FB183B6000A43BD2CDA2D /* libPods-RecipleaseTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RecipleaseTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FEA386D2FD1709778F67B06AF507649 /* Pods-Reciplease-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Reciplease-acknowledgements.markdown"; sourceTree = "<group>"; };
 		842890BF6CB0CFAC4D1B96C6AA47732C /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
+		89F85ACF3D78B39506B75103B4694B36 /* SwiftLint.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.xcconfig; sourceTree = "<group>"; };
 		9CE63347DA38FC1A8DD373A5158E731F /* Pods-RecipleaseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RecipleaseTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A8C890572D0366F88147733BC555C836 /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
 		BE5CA523FAB43CCD54E02BF31B27885F /* Pods-Reciplease-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Reciplease-dummy.m"; sourceTree = "<group>"; };
 		E0CDB393CFAAC058A21F330AD6B100FF /* Pods-RecipleaseTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RecipleaseTests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -38,7 +59,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6A8EA85542FFB34DD40D5C6367F8894C /* Frameworks */ = {
+		328933C46AF1BF7468E41BD885C1A6D4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -81,6 +102,22 @@
 			path = "Target Support Files/Pods-RecipleaseTests";
 			sourceTree = "<group>";
 		};
+		965877409E01FB3D85D85E90E6B30185 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9AED61B9A1CFA211C061344F741DBA07 /* SwiftLint */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9AED61B9A1CFA211C061344F741DBA07 /* SwiftLint */ = {
+			isa = PBXGroup;
+			children = (
+				EEA599FE5C15138FF0981CCFB01E55AA /* Support Files */,
+			);
+			path = SwiftLint;
+			sourceTree = "<group>";
+		};
 		AA1CC14E74E166C8F859D722C48C7EB4 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +132,7 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				965877409E01FB3D85D85E90E6B30185 /* Pods */,
 				F31CD4E7ABF3F4251ACE4C5AE2BFD6C7 /* Products */,
 				AA1CC14E74E166C8F859D722C48C7EB4 /* Targets Support Files */,
 			);
@@ -105,6 +143,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EEA599FE5C15138FF0981CCFB01E55AA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				89F85ACF3D78B39506B75103B4694B36 /* SwiftLint.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftLint";
 			sourceTree = "<group>";
 		};
 		F31CD4E7ABF3F4251ACE4C5AE2BFD6C7 /* Products */ = {
@@ -119,7 +166,7 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		0E3EAE1EE4F2C5296BDFCF915A6237DA /* Headers */ = {
+		2AD45F8429FEAF0019C0CD233ED01832 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -138,15 +185,16 @@
 /* Begin PBXNativeTarget section */
 		6FC77DCEA912690920F2046DF26F2904 /* Pods-Reciplease */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3CF889474C1B15407146395034811B75 /* Build configuration list for PBXNativeTarget "Pods-Reciplease" */;
+			buildConfigurationList = 994AD415EE1695B3EFBDF6974184D84C /* Build configuration list for PBXNativeTarget "Pods-Reciplease" */;
 			buildPhases = (
-				0E3EAE1EE4F2C5296BDFCF915A6237DA /* Headers */,
-				BC8367C3BD7B0D0CC48EF6DB61555FF3 /* Sources */,
-				6A8EA85542FFB34DD40D5C6367F8894C /* Frameworks */,
+				2AD45F8429FEAF0019C0CD233ED01832 /* Headers */,
+				ECAEF0D47EE42AFFCC18B19D06C3DF6D /* Sources */,
+				328933C46AF1BF7468E41BD885C1A6D4 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				72D9D4A2081FE251120E87A3EDD9D62B /* PBXTargetDependency */,
 			);
 			name = "Pods-Reciplease";
 			productName = "Pods-Reciplease";
@@ -178,7 +226,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -186,6 +234,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = F31CD4E7ABF3F4251ACE4C5AE2BFD6C7 /* Products */;
@@ -194,6 +243,7 @@
 			targets = (
 				6FC77DCEA912690920F2046DF26F2904 /* Pods-Reciplease */,
 				EF9A5C5B0637BB4D6B49A9DB7F5B870B /* Pods-RecipleaseTests */,
+				52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
@@ -207,11 +257,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BC8367C3BD7B0D0CC48EF6DB61555FF3 /* Sources */ = {
+		ECAEF0D47EE42AFFCC18B19D06C3DF6D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7828EF4F92E05BD4ABFA099BC5BBD8FE /* Pods-Reciplease-dummy.m in Sources */,
+				8F171ACBAA053AA93CE01A01117D2E8A /* Pods-Reciplease-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,9 +274,33 @@
 			target = 6FC77DCEA912690920F2046DF26F2904 /* Pods-Reciplease */;
 			targetProxy = 5B5809989549D6A2706EDAD17A053CEE /* PBXContainerItemProxy */;
 		};
+		72D9D4A2081FE251120E87A3EDD9D62B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftLint;
+			target = 52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */;
+			targetProxy = 6AA7BD75A1E41B53ABB3B86CFC05BA1F /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		05A517976CC5EEB4B5DF41AD15BD4E79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89F85ACF3D78B39506B75103B4694B36 /* SwiftLint.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		1422B121EAEAEA11307496903FA623C6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -287,6 +361,29 @@
 			};
 			name = Release;
 		};
+		264A5D41A90193A1E9DA5DA7B375DCAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8C890572D0366F88147733BC555C836 /* Pods-Reciplease.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		4E5EC4A0621FEDA610DC0856618C83AB /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 25435A15E7126B49B8DE49B8E184B15F /* Pods-RecipleaseTests.release.xcconfig */;
@@ -310,9 +407,9 @@
 			};
 			name = Release;
 		};
-		69D68E56ED8BAD1C584A6F9BB159CFF1 /* Release */ = {
+		8A00D9AD667EC1E94A624DC6F063193B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8C890572D0366F88147733BC555C836 /* Pods-Reciplease.release.xcconfig */;
+			baseConfigurationReference = 9CE63347DA38FC1A8DD373A5158E731F /* Pods-RecipleaseTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -329,11 +426,10 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
-		6D8C723539D0B5EC3D21B5AFA8838E2A /* Debug */ = {
+		963BEBD29550BB359B1F594873C0D9C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 842890BF6CB0CFAC4D1B96C6AA47732C /* Pods-Reciplease.debug.xcconfig */;
 			buildSettings = {
@@ -355,24 +451,19 @@
 			};
 			name = Debug;
 		};
-		8A00D9AD667EC1E94A624DC6F063193B /* Debug */ = {
+		C62B9B0E4C8E493F8AB72DE441F627B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9CE63347DA38FC1A8DD373A5158E731F /* Pods-RecipleaseTests.debug.xcconfig */;
+			baseConfigurationReference = 89F85ACF3D78B39506B75103B4694B36 /* SwiftLint.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -453,20 +544,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3CF889474C1B15407146395034811B75 /* Build configuration list for PBXNativeTarget "Pods-Reciplease" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6D8C723539D0B5EC3D21B5AFA8838E2A /* Debug */,
-				69D68E56ED8BAD1C584A6F9BB159CFF1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ED7888FA6713EABBF66D26A8003AD1CA /* Debug */,
 				1422B121EAEAEA11307496903FA623C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		994AD415EE1695B3EFBDF6974184D84C /* Build configuration list for PBXNativeTarget "Pods-Reciplease" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				963BEBD29550BB359B1F594873C0D9C0 /* Debug */,
+				264A5D41A90193A1E9DA5DA7B375DCAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C62B9B0E4C8E493F8AB72DE441F627B3 /* Debug */,
+				05A517976CC5EEB4B5DF41AD15BD4E79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

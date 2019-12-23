@@ -4,6 +4,8 @@
 target 'Reciplease' do
 
 
+pod 'SwiftLint'
+
   target 'RecipleaseTests' do
     inherit! :search_paths
     # Pods for testing
